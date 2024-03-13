@@ -19,7 +19,6 @@ export default {
                 }
             })
             .then(response => {
-            console.log(response.data);
             this.projects = response.data.result.data;
             this.currentPage = response.data.result.current_page;
             this.lastPage = response.data.result.last_page;
@@ -38,7 +37,6 @@ export default {
                 }
             })
             .then(response => {
-            console.log(response.data);
             this.projects = response.data.result.data;
             this.currentPage = response.data.result.current_page;
             this.lastPage = response.data.result.last_page;
@@ -52,14 +50,14 @@ export default {
                axios
             .get('http://localhost:8000/api/projects',{
                 params:{
-                    page: i
+                    page: i + 1
                 }
             })
             .then(response => {
-            console.log(response.data);
             this.projects = response.data.result.data;
             this.currentPage = response.data.result.current_page;
             this.lastPage = response.data.result.last_page;
+            console.log(i)
             })
             .catch(error => {
             console.error('Errore nella chiamata API:', error);
