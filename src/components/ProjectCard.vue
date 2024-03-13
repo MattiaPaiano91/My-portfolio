@@ -14,7 +14,7 @@
 
 <template>
     
-        <div class="card p-3 ">
+        <div class="card p-3 me-4">
             <div class="card-id">
                <h5 class=" d-inline-block ">Id progetto:</h5> {{ project.id }}
             </div>
