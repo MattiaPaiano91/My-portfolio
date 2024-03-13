@@ -8,7 +8,7 @@
         },
         props:{
             project:Object
-        }
+        },
     };
 </script>
 
@@ -35,7 +35,7 @@
             </div>
             <div class="card-time">
                <div><h5 class="d-inline-block">Data di creazione:</h5> {{ project.created_at.split('T')[0] }}</div>
-               <div><h5 class="d-inline-block">Oario di creazione:</h5> {{ project.created_at.split('T')[1] }}</div>
+               <div><h5 class="d-inline-block">Oario di creazione:</h5> {{ project.created_at.split('T')[1].split('.')[0]}}</div>
             </div>
         </div>
     
