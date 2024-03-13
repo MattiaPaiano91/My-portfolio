@@ -12,8 +12,8 @@ export default {
 </script>
 
 <template>
-    <header>
-        HEADER
+    <header class="d-flex justify-content-center ">
+        <h1 class="d-inline">I miei progetti</h1>
     </header>
 </template>
 

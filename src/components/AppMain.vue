@@ -90,6 +90,7 @@ export default {
 
 <template>
     <main>
+        <h5 class="text-center mb-5">Pagina corrente: {{ currentPage }}</h5>
         <div class="container-fluid d-flex justify-content-center ">
                 <ProjectCard
                 v-for="project in projects"
@@ -111,6 +112,9 @@ export default {
 <style lang="scss" scoped>
 @use "../assets/scss/main.scss" as *;
 main{
+    h5{
+        margin:0 auto;
+    }
     width: 100%;
     .button-box{
         width: 50%;
