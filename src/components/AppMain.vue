@@ -5,20 +5,66 @@ export default {
     data() {
         return {
             projects:[],
+            currentPage:1,
+            lastPage:1
         };
     },
     methods: {
-
+        nextPage(){
+            if(this.currentPage < this.lastPage){
+                axios
+            .get('http://localhost:8000/api/projects',{
+                params:{
+                    page: this.currentPage + 1
+                }
+            })
+            .then(response => {
+            console.log(response.data);
+            this.projects = response.data.result.data;
+            this.currentPage = response.data.result.current_page;
+            this.lastPage = response.data.result.last_page;
+            })
+            .catch(error => {
+            console.error('Errore nella chiamata API:', error);
+            });
+            }
+        },
+        prevPage(){
+            if(this.currentPage > 1 ){
+                axios
+            .get('http://localhost:8000/api/projects',{
+                params:{
+                    page: this.currentPage - 1
+                }
+            })
+            .then(response => {
+            console.log(response.data);
+            this.projects = response.data.result.data;
+            this.currentPage = response.data.result.current_page;
+            this.lastPage = response.data.result.last_page;
+            })
+            .catch(error => {
+            console.error('Errore nella chiamata API:', error);
+            });
+            }
+        }
     },
     components:{
         ProjectCard
     },
     created() {
         axios
-            .get('http://localhost:8000/api/projects?page=1')
+            .get('http://localhost:8000/api/projects',{
+                params:{
+                    page: this.currentPage
+                }
+            })
             .then(response => {
             console.log(response.data);
             this.projects = response.data.result.data;
+            this.currentPage = response.data.result.current_page;
+            
+            this.lastPage = response.data.result.last_page;
             })
             .catch(error => {
             console.error('Errore nella chiamata API:', error);
@@ -35,6 +81,12 @@ export default {
                 :project="project"
                 />
         </div>
+        <button @click="prevPage()">
+            Pagina precedente
+        </button>
+        <button @click="nextPage()">
+            Pagina successiva
+        </button>
     </main>
 </template>
 
