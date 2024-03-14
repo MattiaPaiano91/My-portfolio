@@ -13,7 +13,7 @@ export default {
 
 <template>
     <header class="d-flex justify-content-center ">
-        <h1 class="d-inline">I miei progetti</h1>
+        <Router-link :to="{name: 'app-main'}" class="btn btn-outline-primary">Vedi tutti i progetti</Router-link>
     </header>
 </template>
 
