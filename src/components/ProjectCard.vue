@@ -13,7 +13,7 @@
 </script>
 
 <template>
-    
+
         <div class="card p-3 me-4">
             <div class="card-id">
                <h5 class=" d-inline-block ">Id progetto:</h5> {{ project.id }}
@@ -37,10 +37,13 @@
                <div><h5 class="d-inline-block">Data di creazione:</h5> {{ project.created_at.split('T')[0] }}</div>
                <div><h5 class="d-inline-block">Oario di creazione:</h5> {{ project.created_at.split('T')[1].split('.')[0]}}</div>
             </div>
+            <Router-link :to="{name: 'show-project', params: {slug: project.slug} }" class="btn btn-outline-primary">Mostra il progetto</Router-link>
         </div>
-    
+
 </template>
+    
 
 <style>
 
 </style>
+    
