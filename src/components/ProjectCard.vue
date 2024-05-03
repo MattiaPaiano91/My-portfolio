@@ -31,19 +31,29 @@
                 <h5>Nessuna tipologia specificata</h5>
             </div>
             <div class="card-technologies">
-              <h5 class=" d-inline-block "> Tecnologie usate:</h5>  <span v-for="elem in project.technologies" class="badge text-bg-primary me-1">{{ elem.title }}</span>
+              <h5 class=" d-inline-block "> Tecnologie usate:</h5>  <span v-for="(elem , i) in project.technologies" :key="i" class="badge text-bg-primary me-1">{{ elem.title }}</span>
             </div>
             <div class="card-time">
-               <div><h5 class="d-inline-block">Data di creazione:</h5> {{ project.created_at.split('T')[0] }}</div>
-               <div><h5 class="d-inline-block">Oario di creazione:</h5> {{ project.created_at.split('T')[1].split('.')[0]}}</div>
+                <div>
+                    <h5 class="d-inline-block">Data di creazione:</h5> {{ project.created_at.split('T')[0] }}
+                </div>
+                <div>
+                    <h5 class="d-inline-block">Oario di creazione:</h5> {{ project.created_at.split('T')[1].split('.')[0]}}
+                </div>
             </div>
-            <Router-link :to="{name: 'show-project', params: {slug: project.slug} }" class="btn btn-outline-primary">Mostra il progetto</Router-link>
+            <Router-link :to="{name: 'show-project', params: {slug: project.slug} }" class="btn btn-outline-dark">Mostra il progetto</Router-link>
         </div>
-
+        
 </template>
     
 
-<style>
-
+<style lang="scss" scoped>
+    @use "../assets/scss/main.scss" as *;
+    @import "../assets/scss/partials/reset";
+    .card{
+        width: calc(100% / 3);
+    }
 </style>
+        
+
     

@@ -1,6 +1,9 @@
 import { createRouter, createWebHistory } from "vue-router";
 import ShowProject from "./pages/ShowProject.vue";
-import AppMain from "./components/AppMain.vue";
+import ProjectIndex from "./pages/ProjectIndex.vue";
+import NotFound from "./pages/NotFound.vue"
+import WelcomeApp from "./pages/WelcomeApp.vue";
+import ContactMe from "./pages/ContactMe.vue";
 import App from "./App.vue";
 
 
@@ -9,8 +12,8 @@ const router = createRouter({
   routes: [
     {
       path: "/",
-      name: "app",
-      component: AppMain,
+      name: "WelcomeApp",
+      component: WelcomeApp,
     },
     {
       path: "/ShowProject/:slug",
@@ -19,9 +22,21 @@ const router = createRouter({
     },
 
     {
+      path: "/:catchAll(.*)",
+      name: "not-found",
+      component: NotFound,
+    },
+
+    {
       path: "/Project/index",
-      name: "app-main",
-      component: AppMain,
+      name: "project-index",
+      component: ProjectIndex,
+    },
+
+    {
+      path: "/Project/ContactMe",
+      name: "contact-me",
+      component: ContactMe,
     },
   ],
 });
