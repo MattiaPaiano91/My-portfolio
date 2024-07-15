@@ -185,6 +185,9 @@ export default {
   padding: 20px;
 }
 header {
+  .burgher-menu{
+    width: 30px;
+  }
   nav {
     width: 50%;
   }
@@ -241,5 +244,6 @@ header {
 .inverted {
   filter: invert(1);
 }
+
 @import "/src/assets/scss/responsive.scss";
 </style>

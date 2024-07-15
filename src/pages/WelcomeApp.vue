@@ -16,8 +16,10 @@ export default {
   },
   methods: {},
   mounted() {
+    
     this.$nextTick(() => {
-      gsap.fromTo(
+      
+           gsap.fromTo(
         ".animations",
         { opacity: 0 },
         { opacity: 1, duration: 2, delay: 0.5, stagger: 0.3, ease: "power2" }
@@ -47,6 +49,16 @@ export default {
       }
     });
   },
+  unmounted(){
+      fetch('https://api.ipify.org?format=json')
+      .then(response => response.json())
+      .then(data => {
+          localStorage.setItem("ipAddress",data.ip);
+      })
+      .catch(error => {
+          console.log('Error:', error);
+      });
+  }
 };
 </script>
 
