@@ -31,11 +31,11 @@ export default {
   },
   mounted() {
     gsap.registerPlugin(TextPlugin);
-    let footer = document.querySelector(".footer");
-    let footerTL = gsap.timeline({ paused: true }).to(".footer", {
+    let footer = document.querySelector(".text");
+    let footerTL = gsap.timeline({ paused: true }).to(".text", {
       text: "Thanks for watching!",
       duration: 2,
-      ease: "linear",
+      ease: "power3.out",
     });
     footer.addEventListener("mouseenter", () => footerTL.play());
     footer.addEventListener("mouseleave", () => footerTL.reverse());
@@ -46,16 +46,18 @@ export default {
 <template>
   <footer class="text-center">
     <swiper
-      :spaceBetween="0"
-      :slidesPerView="10"
       :loop="true"
       :autoplay="{
         delay: 3000,
       }"
       :breakpoints="{
+        '300': {
+          slidesPerView: 4,
+          spaceBetween: 40,
+        },
         '640': {
-          slidesPerView: 2,
-          spaceBetween: 20,
+          slidesPerView: 4,
+          spaceBetween: 40,
         },
         '768': {
           slidesPerView: 4,
@@ -79,19 +81,51 @@ export default {
         />
       </swiper-slide>
     </swiper>
-    <div :class="data.themeFlag ? 'mode-light' : 'mode-dark'" class="footer">
-      Made with &#9829; by an me and Vue.
+    <div
+      :class="data.themeFlag ? 'mode-light' : 'mode-dark'"
+      class="footer d-flex justify-content-center"
+    >
+      <p class="text">Made with &#9829; by an me and Vue.</p>
     </div>
+    <nav class="d-flex justify-content-center navbar">
+      <router-link class="router-link" :to="{ name: 'WelcomeApp' }">
+        <div
+          :style="data.themeFlag ? 'color:black' : 'color:white'"
+          class="mx-sm-3 mx-1"
+        >
+          Home
+        </div>
+      </router-link>
+      |
+      <router-link class="router-link" :to="{ name: 'project-index' }">
+        <div
+          :style="data.themeFlag ? 'color:black' : 'color:white'"
+          class="mx-sm-3 mx-1"
+        >
+          Porfolio
+        </div>
+      </router-link>
+      |
+      <router-link class="router-link" :to="{ name: 'contact-me' }">
+        <div
+          :style="data.themeFlag ? 'color:black' : 'color:white'"
+          class="mx-sm-3 mx-1"
+        >
+          Contattami
+        </div>
+      </router-link>
+    </nav>
   </footer>
 </template>
 
 <style lang="scss" scoped>
 @use "../assets/scss/main.scss" as *;
+@import "../assets/scss/partials/variables.scss";
 footer {
   width: 100%;
-  height: 200px;
+  height: 400px;
   .mySwiper {
-    width: 100%;
+    height: 150px;
   }
   .footer {
     height: 50px;
@@ -100,12 +134,19 @@ footer {
   }
   .slider {
     width: 80px;
-    height: 120px;
+
     img {
       width: 100%;
       height: 100%;
       object-fit: contain;
     }
   }
+  .navbar {
+    border: 2px solid $violet;
+    width: 30%;
+    border-radius: 15px;
+    margin: 0 auto;
+  }
 }
+@import "/src/assets/scss/responsive.scss";
 </style>

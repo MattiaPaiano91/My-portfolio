@@ -1,21 +1,20 @@
 <script setup>
 import { useProjectStore } from "../stores/project";
 const projectStore = useProjectStore();
-console.log(projectStore.getActiveProject) 
- let project = projectStore.getActiveProject;
- console.log(project)
+let project = projectStore.getActiveProject;
+console.log(project);
 </script>
 
 <template>
-  <div class="container">
-    <div class="img-box">
-      <img :src="project.img" alt="">
+  <div class="container pb-5">
+    <div class="show-img my-5">
+      <img :src="project.img" alt="" />
     </div>
-    <div class="project-description">
-      
-    </div>
-    <div class="project-url">
-      <a target="_blank" :href="project.url">Provalo!</a>
+    <div class="description">
+      <p>
+        {{ project.description }}
+      </p>
+      <a target="_blank" :href="project.url">Vai al sito</a>
     </div>
   </div>
 </template>
@@ -23,11 +22,29 @@ console.log(projectStore.getActiveProject)
 <style lang="scss" scoped>
 @use "../assets/scss/main.scss" as *;
 @import "../assets/scss/partials/reset";
-.container{
-  min-height: calc(100vh - 460px);
-}
-a{
-      text-decoration: none;
+@import "../assets/scss/partials/variables.scss";
+.container {
+  min-height: $mainHeight;
+  .show-img {
+    width: 60%;
+    height: 500px;
+    margin: 0 auto;
+    img {
+      width: 100%;
+      height: 100%;
+      border-radius: 10px;
+      object-fit: contain;
+    }
+  }
+  .description {
+    border: 2px solid $violet;
+    border-radius: 10px;
+    font-size: large;
+    padding: 1.5rem;
+    a {
       color: inherit;
     }
+  }
+}
+@import "/src/assets/scss/responsive.scss";
 </style>

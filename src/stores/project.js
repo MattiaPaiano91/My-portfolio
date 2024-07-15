@@ -9,7 +9,8 @@ export const useProjectStore = defineStore("project", {
           url: "https://tic-tac-toe-react-01.netlify.app/",
           img: "/img/tic-tac-toe.jpeg",
           title: `Tic-Tac-Toe`,
-          description:''
+          description:
+            "Un'implementazione interattiva del classico gioco Tris (Tic-Tac-Toe) realizzata con React, che dimostra l'uso di componenti funzionali, gestione dello stato con useState e logica di gioco reattiva.",
         },
       ],
       activeProjectId: null,
@@ -18,7 +19,8 @@ export const useProjectStore = defineStore("project", {
   getters: {
     getProjects: (state) => state.projects,
 
-    getActiveProject: (state) => state.projects.find((p) => p.id === state.activeProjectId),
+    getActiveProject: (state) =>
+      state.projects.find((p) => p.id === state.activeProjectId),
   },
   actions: {
     setActiveProjectId(id) {

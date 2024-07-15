@@ -22,74 +22,45 @@ export default {
 
     updateAge();
     setInterval(updateAge, 1000 * 60 * 60 * 24); // Aggiorna ogni giorno
-    gsap.registerPlugin(ScrollTrigger);
+    if (window.innerWidth > 560) {
+      gsap.registerPlugin(ScrollTrigger);
 
-    gsap.to(".white-back", {
-      xPercent: 100,
-      duration: 3,
-      ease: "power1.inOut",
-      scrollTrigger: {
-        trigger: ".tech-stack",
-        toggleActions: "play pause none pause",
-        end: "center top",
-      },
-    });
+      gsap.to(".white-back", {
+        xPercent: 100,
 
-    gsap.from(".bio", {
-      xPercent: -100,
-      duration: 1,
-      ease: "power4.out",
-      scrollTrigger: {
-        trigger: ".bio",
-        toggleActions: "play pause none pause",
-      },
-    });
+        duration: 3,
+        ease: "power1.inOut",
+        scrollTrigger: {
+          trigger: ".tech-stack",
+          toggleActions: "play pause none pause",
+          end: "center top",
+        },
+      });
+      const elements = [".bio", ".studies", ".out", ".tv", ".idea"];
+      const directions = [-100, 100, -100, 100, -100];
 
-    gsap.from(".studies", {
-      xPercent: 100,
-      duration: 1,
-      ease: "power4.out",
-      scrollTrigger: {
-        trigger: ".studies",
-        toggleActions: "play pause none pause",
-      },
-    });
+      elements.forEach((element, index) => {
+        gsap.set(element, { opacity: 0, xPercent: `${directions[index]}` });
 
-    gsap.from(".out", {
-      xPercent: -100,
-      duration: 1,
-      ease: "power4.out",
-      scrollTrigger: {
-        trigger: ".out",
-        toggleActions: "play pause none pause",
-      },
-    });
-
-    gsap.from(".tv", {
-      xPercent: 100,
-      duration: 1,
-      ease: "power4.out",
-      scrollTrigger: {
-        trigger: ".tv",
-        toggleActions: "play pause none pause",
-      },
-    });
-
-    gsap.from(".idea", {
-      xPercent: -100,
-      duration: 1,
-      ease: "power4.out",
-      scrollTrigger: {
-        trigger: ".idea",
-        toggleActions: "play pause none pause",
-      },
-    });
+        gsap.to(element, {
+          opacity: 1,
+          xPercent: 0,
+          duration: 1,
+          delay: 0.1,
+          ease: "power4.out",
+          scrollTrigger: {
+            trigger: element,
+            toggleActions: "play pause none pause",
+          },
+        });
+      });
+    }
   },
 };
 </script>
 
 <template>
-  <div class="col-12 jumbo position-relative p-0">
+  <div class="col-12 position-relative p-5 p-xl-0">
     <div class="back-img">
       <div :class="data.themeFlag ? 'white-back' : 'black-back'"></div>
     </div>
@@ -166,10 +137,10 @@ export default {
 </template>
 
 <style scoped lang="scss">
-
 .back-img {
+  @import "../assets/scss/partials/variables.scss";
   width: 100%;
-  height: 100vh;
+  height: $mainHeight;
   background-image: url("../../public/img/OndaMattia.svg");
   background-repeat: no-repeat;
   background-position: center;
@@ -200,12 +171,11 @@ export default {
 }
 
 .about-me {
+  width: 100%;
+  height: 100%;
   margin: 20px auto 150px;
-  font-family: Arial, sans-serif;
   font-size: 1.5rem;
   line-height: 1.6;
-  height: 100%;
-
   .bio-section {
     margin-bottom: 100px;
     * {
@@ -215,7 +185,8 @@ export default {
   }
 
   .emoji {
-    font-size: 1.6em;
+    font-size: 1.4em;
+    object-fit: contain;
   }
 
   .highlight {
@@ -227,8 +198,9 @@ export default {
   .tech-stack {
     display: flex;
     flex-wrap: wrap;
+    justify-content: end;
     gap: 10px;
-    margin-top: 10px;
+    margin: 30px auto;
   }
 
   .tech-item {
@@ -242,6 +214,13 @@ export default {
   .learning {
     background-color: #2ecc71;
   }
-
 }
+.bio,
+.studies,
+.out,
+.tv,
+.idea {
+  will-change: transform;
+}
+@import "/src/assets/scss/responsive.scss";
 </style>

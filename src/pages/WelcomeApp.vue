@@ -22,27 +22,29 @@ export default {
         { opacity: 0 },
         { opacity: 1, duration: 2, delay: 0.5, stagger: 0.3, ease: "power2" }
       );
-      gsap.registerPlugin(ScrollTrigger);
-      gsap.to("#left-col", {
-        x: -2000,
-        duration: 3,
-        scrollTrigger: {
-          trigger: "#about-me",
-          toggleActions: "play pause reverse pause",
-          scrub: 2,
-        },
-        autoAlpha: 0,
-      });
-      gsap.to("#right-col", {
-        x: 2000,
-        duration: 3,
-        scrollTrigger: {
-          trigger: "#about-me",
-          toggleActions: "play pause reverse pause",
-          scrub: 1,
-        },
-        autoAlpha: 0,
-      });
+      if (window.innerWidth > 560) {
+        gsap.registerPlugin(ScrollTrigger);
+        gsap.to("#left-col", {
+          x: -2000,
+          duration: 3,
+          scrollTrigger: {
+            trigger: "#about-me",
+            toggleActions: "play pause reverse pause",
+            scrub: 2,
+          },
+          autoAlpha: 0,
+        });
+        gsap.to("#right-col", {
+          x: 2000,
+          duration: 3,
+          scrollTrigger: {
+            trigger: "#about-me",
+            toggleActions: "play pause reverse pause",
+            scrub: 1,
+          },
+          autoAlpha: 0,
+        });
+      }
     });
   },
 };
@@ -53,30 +55,26 @@ export default {
     <div class="row g-0">
       <div
         id="left-col"
-        class="col-6 d-flex align-items-center justify-content-end pe-5"
+        class="col-12 col-sm-6 d-flex align-items-center justify-content-sm-end justify-content-center pe-sm-5"
       >
         <div class="img-box">
           <img src="/img/foto.jpg" alt="" />
         </div>
       </div>
-      <div id="right-col" class="col-6 ps-5">
-        <div
-          class="main-content d-flex flex-column align-items-start justify-content-end"
-        >
-          <div class="text-center">
-            <h1>
-              <span class="name animations">
-                <span class="initials">M</span>attia
-              </span> 
-              <span class="name animations">
-                <span class="initials">P</span>aiano
-              </span>
-            </h1>
-            <p class="animations">Web Developer</p>
-          </div>
-          <div class="logo-box d-flex justify-content-center animations">
-            <img src="/img/LogoBianco.svg" alt="">
-          </div>
+      <div
+        id="right-col"
+        class="col-12 col-sm-6 ps-sm-5 main-content d-flex align-items-center justify-content-sm-start justify-content-center"
+      >
+        <div class="text-center">
+          <h1>
+            <span class="name animations">
+              <span class="initials">M</span>attia
+            </span>
+            <span class="name animations">
+              <span class="initials">P</span>aiano
+            </span>
+          </h1>
+          <p class="animations">Web Developer</p>
         </div>
       </div>
       <AboutMe id="about-me" />
@@ -86,10 +84,10 @@ export default {
 
 <style lang="scss" scoped>
 @use "../assets/scss/main" as *;
-@import "../assets/scss/partials/reset";
+
 .name {
   font-size: 4rem;
-  .initials{
+  .initials {
     font-weight: 600;
     font-size: 5rem;
   }
@@ -105,25 +103,25 @@ export default {
     border-radius: 50%;
   }
 }
-.col-6 {
+.col-sm-6 {
   height: calc(100vh - 160px);
 }
 .main-content {
   height: calc(100% - 200px);
-  & > *{
-    width: 50%;
-
+  & > div {
+    padding-top: 200px;
   }
   padding-bottom: 100px;
   .color {
     color: white;
   }
-  .logo-box{
+  .logo-box {
     text-align: center;
-    img{
+    img {
       width: 50%;
       object-fit: contain;
     }
   }
 }
+@import "/src/assets/scss/responsive.scss";
 </style>

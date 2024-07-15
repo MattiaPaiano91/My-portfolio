@@ -1,0 +1,90 @@
+@import "/src/assets/scss/partials/variables.scss";
+
+@media screen and (max-width: 1100px) {
+  header {
+    font-size: 1.2rem;
+  }
+  .img-box {
+    width: 300px;
+    height: 300px;
+  }
+  .name {
+    font-size: 2rem;
+  }
+  .initials {
+    font-size: 3rem !important;
+    font-weight: 400;
+  }
+  .navbar {
+    width: 30%;
+  }
+}
+
+@media screen and (max-width: 900px) {
+  .hover {
+    padding: 5px 30px !important;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  header {
+    font-size: 1rem;
+  }
+  .img-box {
+    width: 200px;
+    height: 200px;
+  }
+  .name {
+    font-size: 1.8rem;
+  }
+  .initials {
+    font-size: 2.5rem !important;
+    font-weight: 300;
+  }
+  .about-me {
+    font-size: 1.2rem;
+  }
+  .slider {
+    width: 40px;
+    img {
+      width: 50%;
+      height: 50%;
+      object-fit: contain;
+    }
+  }
+  .navbar {
+    width: 60% !important;
+  }
+  .hover {
+    padding: 5px 15px !important;
+  }
+}
+
+@media screen and (max-width: 576px) {
+  .img-box {
+    margin: 0 auto;
+  }
+  .main-content {
+    & > div {
+      padding-top: 0px;
+    }
+  }
+  .main {
+    padding: 0px !important;
+  }
+  #left-col {
+    height: calc(50vh);
+  }
+  #right-col {
+    height: calc(50vh);
+  }
+  .navbar {
+    width: 80% !important;
+  }
+}
+
+@media screen and (max-width: 425px) {
+}
+
+@media screen and (max-width: 400px) {
+}
