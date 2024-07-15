@@ -17,17 +17,13 @@ export default {
   },
   methods: {},
   mounted() {
-    // console.log(localStorage)
   },
 };
 </script>
 
 <template>
   <AppHeader />
-  <div
-    :class="data.themeFlag ? 'mode-light' : 'mode-dark'"
-    class="container-fluid main p-0"
-  >
+  <div :class="data.themeFlag ? 'mode-light' : 'mode-dark'" class="main">
     <AppMain />
   </div>
   <AppFooter :class="data.themeFlag ? 'mode-light' : 'mode-dark'" />

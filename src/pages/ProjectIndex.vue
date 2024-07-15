@@ -5,16 +5,23 @@ import { onMounted, ref } from "vue";
 
 const projectStore = useProjectStore();
 
-function watchProject (projectID){
+function watchProject(projectID) {
   projectStore.setActiveProjectId(projectID);
 }
-
 </script>
 
 <template>
   <div class="container">
-    <div v-for="project in projectStore.getProjects" class="project" :key="project.id">
-      <router-link @click="watchProject(project.id)" class=" text-decoration-none" :to="{ name: 'show-project' }">
+    <div
+      v-for="project in projectStore.getProjects"
+      class="project"
+      :key="project.id"
+    >
+      <router-link
+        @click="watchProject(project.id)"
+        class="text-decoration-none"
+        :to="{ name: 'show-project' }"
+      >
         <div class="project-img">
           <img :src="project.img" alt="" />
         </div>
@@ -32,33 +39,35 @@ function watchProject (projectID){
 
 <style lang="scss" scoped>
 @use "../assets/scss/main.scss" as *;
+@import "../assets/scss/partials/variables.scss";
 .container {
-  min-height: calc(100vh - 460px);
+  min-height: $mainHeight;
+  margin-bottom: 150px;
   .project {
     width: calc(100% / 3);
     padding: 10px;
     border: 1px solid lightgray;
     border-radius: 10px;
-    .project-url{
-      i{
+    .project-url {
+      i {
         font-size: 1.5rem;
         margin-right: 0.8rem;
         transition: 0.5s transform ease-in-out;
       }
     }
-    a{
+    a {
       text-decoration: none;
       color: inherit;
     }
     &:hover {
-          img{
-            transform: scale(1.05);
-          }
-          i{
-            transform: scale(1.20);
-          }
-        }
-    
+      img {
+        transform: scale(1.05);
+      }
+      i {
+        transform: scale(1.3);
+      }
+    }
+
     .project-img {
       width: 100%;
       overflow: hidden;
@@ -66,7 +75,6 @@ function watchProject (projectID){
         width: 100%;
         object-fit: contain;
         transition: 0.5s transform ease-in-out;
-        
       }
     }
   }

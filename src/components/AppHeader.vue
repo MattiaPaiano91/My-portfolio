@@ -30,8 +30,8 @@ export default {
     },
   },
   mounted() {
-    gsap.to(".fa-sun", { autoAlpha: 0, duration: 0 });
-    gsap.to(".fa-moon", { x: 23, duration: 0 });
+    gsap.set(".fa-sun", { autoAlpha: 0, duration: 0 });
+    gsap.set(".fa-moon", { x: 23, duration: 0 });
     this.$nextTick(() => {
       gsap.fromTo(
         [".burgher-menu"],
@@ -44,6 +44,7 @@ export default {
 
     burgherItem.addEventListener("click", () => {
       if (this.menuFlag) {
+        gsap.to(".logo-box", { autoAlpha: 0 });
         let header = gsap.to("header", { height: 150, duration: 0.5 });
         gsap.fromTo(
           ".animation-link",
@@ -53,6 +54,7 @@ export default {
         gsap.fromTo(".fa-bars", { autoAlpha: 1 }, { autoAlpha: 0 });
         gsap.fromTo(".fa-x", { autoAlpha: 0 }, { autoAlpha: 1 });
       } else {
+        gsap.to(".logo-box", { autoAlpha: 1, delay: 0.5 });
         gsap.to("header", { height: 100, duration: 0.5 });
         gsap.to(".animation-link", {
           x: -100,
@@ -83,66 +85,89 @@ export default {
 </script>
 
 <template>
+  <button
+    class="d-sm-none"
+    type="button"
+    data-bs-toggle="offcanvas"
+    data-bs-target="#offcanvasExample"
+    aria-controls="offcanvasExample"
+  >
+    <i class="icon fa-solid fa-bars fa offcanvas-button"></i>
+  </button>
+
+  <div
+    class="offcanvas w-100 offcanvas-start d-sm-none"
+    tabindex="-1"
+    id="offcanvasExample"
+    aria-labelledby="offcanvasExampleLabel"
+  >
+    <div class="offcanvas-header">
+      <div class="logo-box">
+        <img src="/img/LogoNero.svg" alt="" />
+      </div>
+      <button
+        type="button"
+        class="btn-close"
+        data-bs-dismiss="offcanvas"
+        aria-label="Close"
+      ></button>
+    </div>
+  </div>
   <header
     :class="data.themeFlag ? 'mode-light' : 'mode-dark'"
-    class="container-fluid border-bottom p-0 text-center d-flex justify-content-around align-items-center"
+    class="container-fluid d-none justify-content-around align-items-center d-sm-flex"
   >
-    <div>
-      <div class="burgher-menu position-relative">
-        
-        <i class="icon fa-solid fa-bars fa position-absolute"></i>
-        <i class="icon fa-solid fa-x fa position-absolute"></i>
-      </div>
-    </div>
-    <div class="animation-link">
-      <div>
-        <router-link class="router-link" :to="{ name: 'WelcomeApp' }">
-          <div
-            :style="data.themeFlag ? 'color:black' : 'color:white'"
-            class="hover"
-          >
-            Home
-          </div>
-        </router-link>
-      </div>
+    <div class="burgher-menu position-relative">
+      <i class="icon fa-solid fa-bars fa position-absolute"></i>
+      <i class="icon fa-solid fa-x fa position-absolute"></i>
     </div>
 
-    <div class="animation-link">
-      <div>
-        <router-link class="router-link" :to="{ name: 'project-index' }">
-          <div
-            :style="data.themeFlag ? 'color:black' : 'color:white'"
-            class="hover"
-          >
-            Porfolio
-          </div>
-        </router-link>
-      </div>
+    <div class="logo-box burgher-menu">
+      <img
+        :class="data.themeFlag ? '' : 'inverted'"
+        src="/img/LogoBianco.svg"
+        alt=""
+      />
     </div>
-    <div class="animation-link">
-      <div>
-        <router-link class="router-link" :to="{ name: 'project-index' }">
-          <div
-            :style="data.themeFlag ? 'color:black' : 'color:white'"
-            class="hover"
-          >
-            About me
-          </div>
-        </router-link>
+    <nav class="d-flex justify-content-around">
+      <div class="animation-link">
+        <div>
+          <router-link class="router-link" :to="{ name: 'WelcomeApp' }">
+            <div
+              :style="data.themeFlag ? 'color:black' : 'color:white'"
+              class="hover"
+            >
+              Home
+            </div>
+          </router-link>
+        </div>
       </div>
-    </div>
-    <div class="animation-link">
-      <div>
-        <router-link class="router-link" :to="{ name: 'contact-me' }">
-          <div
-            :style="data.themeFlag ? 'color:black' : 'color:white'"
-            class="hover"
-          >
-            Contattami
-          </div>
-        </router-link>
+
+      <div class="animation-link">
+        <div>
+          <router-link class="router-link" :to="{ name: 'project-index' }">
+            <div
+              :style="data.themeFlag ? 'color:black' : 'color:white'"
+              class="hover"
+            >
+              Porfolio
+            </div>
+          </router-link>
+        </div>
       </div>
-    </div>
+      <div class="animation-link">
+        <div>
+          <router-link class="router-link" :to="{ name: 'contact-me' }">
+            <div
+              :style="data.themeFlag ? 'color:black' : 'color:white'"
+              class="hover"
+            >
+              Contattami
+            </div>
+          </router-link>
+        </div>
+      </div>
+    </nav>
     <div class="d-flex align-items-center icons">
       <i @click="switchToLight()" class="fa-regular fa fa-sun mode-dark"></i>
       <i @click="switchToDark()" class="fa-regular fa fa-moon mode-light"></i>
@@ -152,16 +177,31 @@ export default {
 
 <style lang="scss" scoped>
 @use "../assets/scss/main.scss" as *;
+
 @import url("https://fonts.googleapis.com/css2?family=Montserrat&display=swap");
 
+.offcanvas-button {
+  font-size: 1.5rem;
+  padding: 20px;
+}
 header {
+  nav {
+    width: 50%;
+  }
   width: 100%;
   height: 100px;
-  border-bottom: 1px solid darkgray;
+  border-bottom: 1px solid lightgray;
   position: fixed;
   z-index: 2;
-  font-size: 1.4rem;
-
+  font-size: 1.4em;
+  .logo-box {
+    position: absolute;
+    width: 100px;
+    img {
+      width: 100%;
+      object-fit: contain;
+    }
+  }
   .icons {
     width: 60px;
     height: 30px;
@@ -174,16 +214,13 @@ header {
   }
 
   .hover {
-    padding: 0.5rem;
+    padding: 5px 50px;
     text-align: center;
-    width: 60%;
-    margin: 0 auto;
     font-weight: 500;
   }
 
   .animation-link {
     opacity: 0;
-    width: calc((100% / 6) - 4rem);
   }
 
   i {
@@ -194,11 +231,15 @@ header {
   .fa-x {
     opacity: 0;
   }
-  
+
   .icon {
     left: 50;
     top: 50;
     transform: translate(-50%, -50%);
   }
 }
+.inverted {
+  filter: invert(1);
+}
+@import "/src/assets/scss/responsive.scss";
 </style>

@@ -1,63 +1,128 @@
 <script setup>
-// import { ref } from "vue";
-// import { useCounterStore } from "../stores/project";
-// import ComponentTest from "../components/ComponentTest.vue";
-
-// const storeCounter = useCounterStore();
-// const user = ref({
-//   name: "mattia",
-//   age: 32,
-// });
-// function setNewAge() {
-//   user.value.age++;
-// }
-// setTimeout(function () {
-//   (user.value.name = "paiano"), (user.value.age = 33);
-// }, 2000);
-// console.log(storeCounter.user.name);
+import { data } from "../store";
 </script>
 
 <template>
-  <!-- <ComponentTest :user="user"></ComponentTest>
-  <button class="btn btn-dark d-block" @click="setNewAge()">
-    Aumenta di 1
-  </button>
-  <div class="count f">
-    {{ storeCounter.count }}
+  <div class="contact-container text-center">
+    <h1>Contattami</h1>
+    <div class="contact-content" :class="data.themeFlag ? '' : 'bg-dark'">
+      <div class="contact-info">
+        <p>Non esitare a contattarmi per qualsiasi domanda o collaborazione.</p>
+        <ul class="text-center">
+          <li>
+            <strong>Email:</strong>
+            <a href="mailto:mattia.paiano@example.com"
+              >paianomattia1@gmail.com</a
+            >
+          </li>
+          <li><strong>Località:</strong> Città, Paese</li>
+          <li>
+            <strong>LinkedIn:</strong>
+            <a
+              href="https://www.linkedin.com/in/mattia-paiano/"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              linkedin.com/mattia-paiano
+            </a>
+          </li>
+          <li>
+            <strong>GitHub:</strong>
+            <a
+              href="https://github.com/MattiaPaiano91"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              github.com/MattiaPaiano91
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <div class="img-box">
+      <img
+        :class="data.themeFlag ? '' : 'inverted'"
+        src="/public/img/LogoConNomeBianco.svg"
+        alt=""
+      />
+    </div>
   </div>
-  <div class="text-center">
-    <button
-      class="btn btn-outline-primary text-center"
-      @click="storeCounter.increment"
-    >
-      +1
-    </button>
-    <button
-      class="btn btn-outline-primary text-center"
-      @click="storeCounter.decreas"
-    >
-      -1
-    </button>
-  </div>
-  <hr />
-  <div class="text-center">This counter is : {{ storeCounter.oddOrEven }}</div>
-  <hr />
-  <div>
-    <h3>edit counter</h3>
-    <input type="number" v-model="storeCounter.count" />
-  </div>
-  <div>
-    <h1>
-      My name is {{ storeCounter.user.name }} {{ storeCounter.user.lastName }}
-    </h1>
-    <input type="text" v-model="storeCounter.user.name" />
-  </div> -->
 </template>
 
-<style scoped>
-.f {
-  height: calc(100vh - 100px);
-  text-align: center;
-  font-size: 5rem;
+<style lang="scss" scoped>
+@import "../assets/scss/partials/variables.scss";
+.inverted {
+  filter: invert(1);
+}
+.contact-container {
+  .img-box {
+    width: 60%;
+    margin: 0 auto;
+    img {
+      width: 100%;
+      object-fit: contain;
+    }
+  }
+  min-height: $mainHeight;
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 2rem;
+  font-family: "Poppins", sans-serif;
+
+  h1 {
+    font-size: 2.5rem;
+    margin-bottom: 2rem;
+    color: $violet;
+    font-weight: 600;
+  }
+
+  .contact-content {
+    background-color: #f8f8f8;
+    border-radius: 8px;
+    padding: 2rem;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  }
+
+  .contact-info {
+    h2 {
+      font-size: 1.5rem;
+      margin-bottom: 1rem;
+      color: $violet;
+      font-weight: 500;
+    }
+
+    p {
+      margin-bottom: 1.5rem;
+      color: inherit;
+    }
+
+    ul {
+      list-style-type: none;
+      padding: 0;
+
+      li {
+        margin-bottom: 1rem;
+        display: flex;
+        align-items: flex-start;
+
+        strong {
+          min-width: 80px;
+          display: inline-block;
+          margin-right: 0.5rem;
+        }
+
+        a {
+          color: $violet;
+          text-decoration: none;
+          transition: color 0.3s ease;
+
+          &:hover {
+            color: darken($violet, 15%);
+            text-decoration: underline;
+          }
+        }
+      }
+    }
+  }
 }
 </style>
