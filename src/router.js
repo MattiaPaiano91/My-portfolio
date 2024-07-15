@@ -16,7 +16,7 @@ const router = createRouter({
       component: WelcomeApp,
     },
     {
-      path: "/ShowProject/:slug",
+      path: "/ShowProject/",
       name: "show-project",
       component: ShowProject,
     },
@@ -34,7 +34,7 @@ const router = createRouter({
     },
 
     {
-      path: "/Project/ContactMe",
+      path: "/ContactMe",
       name: "contact-me",
       component: ContactMe,
     },
