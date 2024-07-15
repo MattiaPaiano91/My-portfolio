@@ -15,7 +15,7 @@ import { data } from "../store";
               >paianomattia1@gmail.com</a
             >
           </li>
-          <li><strong>Località:</strong> Città, Paese</li>
+          <li><strong>Località:</strong> Lecce, Italia</li>
           <li>
             <strong>LinkedIn:</strong>
             <a

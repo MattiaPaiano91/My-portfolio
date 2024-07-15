@@ -22,6 +22,7 @@ export default {
 
     updateAge();
     setInterval(updateAge, 1000 * 60 * 60 * 24); // Aggiorna ogni giorno
+
     if (window.innerWidth > 560) {
       gsap.registerPlugin(ScrollTrigger);
 
