@@ -1,0 +1,28 @@
+import { defineStore } from "pinia";
+
+export const useProjectStore = defineStore("project", {
+  state: () => {
+    return {
+      projects: [
+        {
+          id: 1,
+          url: "https://tic-tac-toe-react-01.netlify.app/",
+          img: "/img/tic-tac-toe.jpeg",
+          title: `Tic-Tac-Toe`,
+          description:''
+        },
+      ],
+      activeProjectId: null,
+    };
+  },
+  getters: {
+    getProjects: (state) => state.projects,
+
+    getActiveProject: (state) => state.projects.find((p) => p.id === state.activeProjectId),
+  },
+  actions: {
+    setActiveProjectId(id) {
+      this.activeProjectId = id;
+    },
+  },
+});

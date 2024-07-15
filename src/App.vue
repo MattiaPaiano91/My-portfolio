@@ -1,45 +1,39 @@
 <script>
-import { RouterView } from 'vue-router';
-import AppHeader from './components/AppHeader.vue';
+import AppHeader from "./components/AppHeader.vue";
+import AppFooter from "./components/AppFooter.vue";
+import AppMain from "./components/AppMain.vue";
 import { data } from "./store.js";
 
-
-
-
 export default {
-    data() {
-        return {
-            themeFlag: true
-        };
-    },
-    components: {
-        AppHeader
-    },
-    methods:{
-        switchTheme(){
-            this.themeFlag = !this.themeFlag;
-            data.imgFlag = !data.imgFlag;
-        }
-    }  
-}
+  data() {
+    return {
+      data,
+    };
+  },
+  components: {
+    AppHeader,
+    AppMain,
+    AppFooter,
+  },
+  methods: {},
+  mounted() {
+    // console.log(localStorage)
+  },
+};
 </script>
 
 <template>
-    <AppHeader :flag="themeFlag" @eventoPersonalizzato="switchTheme()"/>
-    <div :class="themeFlag ?'mode-light':'mode-dark'" class="container-fluid main p-0">
-        <router-view></router-view>
-    </div>
+  <AppHeader />
+  <div
+    :class="data.themeFlag ? 'mode-light' : 'mode-dark'"
+    class="container-fluid main p-0"
+  >
+    <AppMain />
+  </div>
+  <AppFooter :class="data.themeFlag ? 'mode-light' : 'mode-dark'" />
 </template>
 
 <style lang="scss">
-    @use "assets/scss/main" as *;
-    @import "assets/scss/partials/reset";
-
-   
-
+@use "assets/scss/main" as *;
+@import "assets/scss/partials/reset";
 </style>
-            
-            
-    
-    
-    

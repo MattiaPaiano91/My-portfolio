@@ -1,5 +1,6 @@
 import { reactive } from "vue";
 
 export const data = reactive({
-   imgFlag:true
+  imgFlag: true,
+  themeFlag: true,
 });

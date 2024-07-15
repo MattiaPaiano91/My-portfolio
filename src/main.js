@@ -4,6 +4,11 @@ import App from './App.vue'
 // Import all of Bootstrap's JS
 import * as bootstrap from 'bootstrap'
 import { createPinia } from "pinia";
+import { gsap } from "gsap";
+
+
 const pinia = createPinia();
+
+
 
 createApp(App).use(router).use(pinia).mount("#app");
