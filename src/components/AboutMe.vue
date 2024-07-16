@@ -216,12 +216,6 @@ export default {
     background-color: #2ecc71;
   }
 }
-.bio,
-.studies,
-.out,
-.tv,
-.idea {
-  will-change: transform;
-}
+
 @import "/src/assets/scss/responsive.scss";
 </style>
