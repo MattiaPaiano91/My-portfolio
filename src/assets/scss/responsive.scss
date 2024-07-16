@@ -1,5 +1,21 @@
 @import "/src/assets/scss/partials/variables.scss";
 
+@media screen and (max-width: 1600px) {
+  .animation-link{
+    width: 250px!important;
+  }
+}
+@media screen and (max-width:1300px) {
+  .animation-link{
+    width: 200px!important;
+    .hover {
+      padding: 5px 40px !important;
+      font-size: 1.3rem!important;
+      margin: 0 5px;
+    }
+  }
+}
+
 @media screen and (max-width: 1100px) {
   header {
     font-size: 1.2rem;
@@ -18,10 +34,13 @@
   .navbar {
     width: 30%;
   }
-  .hover {
-    padding: 5px 30px !important;
-    font-size: 1.5rem!important;
-    margin: 0 5px;
+  .animation-link{
+    width: 150px!important;
+    .hover {
+      padding: 5px 20px !important;
+      font-size: 1.2rem!important;
+      margin: 0 5px;
+    }
   }
 }
 
@@ -54,10 +73,13 @@
   .navbar {
     width: 60% !important;
   }
-  .hover {
-    padding: 5px 15px !important;
-    font-size: 1.2rem!important;
-    margin: 0 2px;
+   .animation-link{
+    width: 120px!important;
+    .hover {
+      padding: 5px 10px !important;
+      font-size: 1rem!important;
+      margin: 0 2px;
+    }
   }
 }
 

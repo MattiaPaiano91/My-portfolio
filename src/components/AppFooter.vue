@@ -102,7 +102,7 @@ export default {
           :style="data.themeFlag ? 'color:black' : 'color:white'"
           class="mx-sm-3 mx-1"
         >
-          Porfolio
+          Portfolio
         </div>
       </router-link>
       |
