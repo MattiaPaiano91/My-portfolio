@@ -85,7 +85,7 @@ export default {
       :class="data.themeFlag ? 'mode-light' : 'mode-dark'"
       class="footer d-flex justify-content-center"
     >
-      <p class="text">Made with &#9829; by an me and Vue.</p>
+      <p class="text">Made with &#9829; by me and Vue.</p>
     </div>
     <nav class="d-flex justify-content-center navbar">
       <router-link class="router-link" :to="{ name: 'WelcomeApp' }">
