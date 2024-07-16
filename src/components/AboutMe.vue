@@ -179,10 +179,9 @@ export default {
   line-height: 1.6;
   .bio-section {
     margin-bottom: 100px;
-    * {
-      margin: 0 auto;
-      max-width: 800px !important;
-    }
+    margin: 0 auto;
+    max-width: 800px !important;
+   
   }
 
   .emoji {
@@ -199,17 +198,18 @@ export default {
   .tech-stack {
     display: flex;
     flex-wrap: wrap;
-    justify-content: end;
     gap: 10px;
     margin: 30px auto;
   }
 
   .tech-item {
+    width:auto;
+    text-align: center;
     background-color: #989edd;
-    color: white;
-    padding: 8px 13px;
+    color: inherit;
+    padding: 0 8px;
     border-radius: 15px;
-    font-size: 0.9em;
+    font-size: 0.8em;
   }
 
   .learning {

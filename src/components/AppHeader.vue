@@ -113,38 +113,38 @@ export default {
         aria-label="Close"
       ></button>
     </div>
-    <div class=" offcanvas-body">
+    <div class="offcanvas-body">
       <div class="offcanvas-img">
-        <img src="/public/img/LogoBianco.svg" alt="">
+        <img src="/public/img/LogoBianco.svg" alt="" />
       </div>
-      <nav class=" d-flex flex-column">
-        <router-link  class="router-link" :to="{ name: 'WelcomeApp' }">
-            <div
-              :style="data.themeFlag ? 'color:black' : 'color:white'"
-              class="hover"
-              data-bs-dismiss="offcanvas"
-            >
-              Home
-            </div>
-          </router-link>
-           <router-link  class="router-link" :to="{ name: 'project-index' }">
-            <div
-              :style="data.themeFlag ? 'color:black' : 'color:white'"
-              class="hover"
-              data-bs-dismiss="offcanvas"
-            >
-              Porfolio
-            </div>
-          </router-link>
-          <router-link class="router-link" :to="{ name: 'contact-me' }">
-            <div
-              :style="data.themeFlag ? 'color:black' : 'color:white'"
-              class="hover"
-              data-bs-dismiss="offcanvas"
-            >
-              Contattami
-            </div>
-          </router-link>
+      <nav class="d-flex flex-column">
+        <router-link class="router-link" :to="{ name: 'WelcomeApp' }">
+          <div
+            :style="data.themeFlag ? 'color:black' : 'color:white'"
+            class="hover"
+            data-bs-dismiss="offcanvas"
+          >
+            Home
+          </div>
+        </router-link>
+        <router-link class="router-link" :to="{ name: 'project-index' }">
+          <div
+            :style="data.themeFlag ? 'color:black' : 'color:white'"
+            class="hover"
+            data-bs-dismiss="offcanvas"
+          >
+            Porfolio
+          </div>
+        </router-link>
+        <router-link class="router-link" :to="{ name: 'contact-me' }">
+          <div
+            :style="data.themeFlag ? 'color:black' : 'color:white'"
+            class="hover"
+            data-bs-dismiss="offcanvas"
+          >
+            Contattami
+          </div>
+        </router-link>
       </nav>
     </div>
   </div>
@@ -166,41 +166,35 @@ export default {
     </div>
     <nav class="d-flex justify-content-around">
       <div class="animation-link">
-        <div>
-          <router-link class="router-link" :to="{ name: 'WelcomeApp' }">
-            <div
-              :style="data.themeFlag ? 'color:black' : 'color:white'"
-              class="hover"
-            >
-              Home
-            </div>
-          </router-link>
-        </div>
+        <router-link class="router-link" :to="{ name: 'WelcomeApp' }">
+          <div
+            :style="data.themeFlag ? 'color:black' : 'color:white'"
+            class="hover"
+          >
+            Home
+          </div>
+        </router-link>
       </div>
 
       <div class="animation-link">
-        <div>
-          <router-link class="router-link" :to="{ name: 'project-index' }">
-            <div
-              :style="data.themeFlag ? 'color:black' : 'color:white'"
-              class="hover"
-            >
-              Porfolio
-            </div>
-          </router-link>
-        </div>
+        <router-link class="router-link" :to="{ name: 'project-index' }">
+          <div
+            :style="data.themeFlag ? 'color:black' : 'color:white'"
+            class="hover"
+          >
+            Portfolio
+          </div>
+        </router-link>
       </div>
       <div class="animation-link">
-        <div>
-          <router-link class="router-link" :to="{ name: 'contact-me' }">
-            <div
-              :style="data.themeFlag ? 'color:black' : 'color:white'"
-              class="hover"
-            >
-              Contattami
-            </div>
-          </router-link>
-        </div>
+        <router-link class="router-link" :to="{ name: 'contact-me' }">
+          <div
+            :style="data.themeFlag ? 'color:black' : 'color:white'"
+            class="hover"
+          >
+            Contattami
+          </div>
+        </router-link>
       </div>
     </nav>
     <div class="d-flex align-items-center icons">
@@ -214,13 +208,13 @@ export default {
 @use "../assets/scss/main.scss" as *;
 
 @import url("https://fonts.googleapis.com/css2?family=Montserrat&display=swap");
-.offcanvas-img{
+.offcanvas-img {
   width: 50%;
   margin: 0 auto;
- img{
-  width: 100%;
-  object-fit: contain;
- }
+  img {
+    width: 100%;
+    object-fit: contain;
+  }
 }
 .dark-header {
   background-color: #1d242d;
@@ -237,11 +231,22 @@ header {
   position: fixed;
   z-index: 2;
   font-size: 1.4em;
+  .animation-link{
+    width: 350px;
+   
+      .hover {
+        width: 100%;
+      padding: 5px 50px;
+      text-align: center;
+      font-weight: 300;
+      font-size: 1.8rem;
+    }
+  }
   .icon-holder {
     width: 30px;
   }
   nav {
-    width: 50%;
+    width: 60%;
   }
   .logo-box {
     position: absolute;
@@ -262,12 +267,7 @@ header {
     }
   }
 
-  .hover {
-    padding: 5px 50px;
-    text-align: center;
-    font-weight: 300;
-    font-size: 1.8rem;
-  }
+  
 
   .animation-link {
     opacity: 0;
