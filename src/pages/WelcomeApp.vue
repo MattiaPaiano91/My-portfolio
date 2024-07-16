@@ -119,9 +119,8 @@ export default {
   height: calc(100vh - 160px);
 }
 .main-content {
-  height: calc(100% - 200px);
   & > div {
-    padding-top: 200px;
+    padding-top: 100px;
   }
   padding-bottom: 100px;
   .color {
