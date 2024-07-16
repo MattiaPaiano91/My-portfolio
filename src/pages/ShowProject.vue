@@ -1,8 +1,14 @@
 <script setup>
+import { onBeforeMount } from "vue";
 import { useProjectStore } from "../stores/project";
 const projectStore = useProjectStore();
 let project = projectStore.getActiveProject;
-console.log(project);
+onBeforeMount(()=> {
+  window.scroll({
+        top: 0,
+        behavior: "instant",
+      });
+})
 </script>
 
 <template>
@@ -27,12 +33,12 @@ console.log(project);
   min-height: $mainHeight;
   .show-img {
     width: 60%;
-    height: 500px;
+    width: 500px;
     margin: 0 auto;
     img {
       width: 100%;
       height: 100%;
-      border-radius: 10px;
+      border-radius: 15px;
       object-fit: contain;
     }
   }

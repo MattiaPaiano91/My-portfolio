@@ -1,13 +1,22 @@
 <script setup>
+import { onBeforeMount } from "vue";
 import { useProjectStore } from "../stores/project";
 import { gsap } from "gsap";
 import { onMounted, ref } from "vue";
 
 const projectStore = useProjectStore();
-
+function scrollToTop() {
+      
+    }
 function watchProject(projectID) {
   projectStore.setActiveProjectId(projectID);
 }
+onBeforeMount(()=> {
+  window.scroll({
+        top: 0,
+        behavior: "instant",
+      });
+})
 </script>
 
 <template>
