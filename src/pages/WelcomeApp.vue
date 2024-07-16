@@ -14,12 +14,22 @@ export default {
   components: {
     AboutMe,
   },
-  methods: {},
+  methods: {
+    scrollToTop() {
+      window.scroll({
+        top: 0,
+        behavior: "instant",
+      });
+    },
+  },
+  beforeMount(){
+    this.scrollToTop();
+  }
+  ,
   mounted() {
-    
     this.$nextTick(() => {
       
-           gsap.fromTo(
+      gsap.fromTo(
         ".animations",
         { opacity: 0 },
         { opacity: 1, duration: 2, delay: 0.5, stagger: 0.3, ease: "power2" }
@@ -34,7 +44,6 @@ export default {
             toggleActions: "play pause reverse pause",
             scrub: 2,
           },
-          autoAlpha: 0,
         });
         gsap.to("#right-col", {
           x: 2000,
@@ -44,20 +53,9 @@ export default {
             toggleActions: "play pause reverse pause",
             scrub: 1,
           },
-          autoAlpha: 0,
         });
       }
     });
-  },
-  unmounted(){
-      fetch('https://api.ipify.org?format=json')
-      .then(response => response.json())
-      .then(data => {
-          localStorage.setItem("ipAddress",data.ip);
-      })
-      .catch(error => {
-          console.log('Error:', error);
-      });
   }
 };
 </script>
