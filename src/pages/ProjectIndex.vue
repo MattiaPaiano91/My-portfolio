@@ -20,7 +20,7 @@ onBeforeMount(()=> {
 </script>
 
 <template>
-  <div class="container">
+  <div class="container index">
     <div
       v-for="project in projectStore.getProjects"
       class="project"

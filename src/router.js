@@ -14,31 +14,38 @@ const router = createRouter({
       path: "/",
       name: "WelcomeApp",
       component: WelcomeApp,
+      meta: { pageTitle: "MP | Welcome" },
     },
     {
       path: "/ShowProject/",
       name: "show-project",
       component: ShowProject,
+      meta: { pageTitle: "MP | Show" },
     },
 
     {
       path: "/:catchAll(.*)",
       name: "not-found",
       component: NotFound,
+      meta: { pageTitle: "MP | Oopsie" },
     },
 
     {
       path: "/Project/index",
       name: "project-index",
       component: ProjectIndex,
+      meta: { pageTitle: "MP | Progetti" },
     },
 
     {
       path: "/ContactMe",
       name: "contact-me",
       component: ContactMe,
+      meta: { pageTitle: "MP | Contatti" },
     },
   ],
 });
-
+router.beforeEach((to, from) => {
+  document.title = to.meta.pageTitle;
+});
 export { router };

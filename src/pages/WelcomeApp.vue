@@ -65,7 +65,7 @@ export default {
     <div class="row g-0">
       <div
         id="left-col"
-        class="col-12 col-sm-6 d-flex align-items-center justify-content-sm-end justify-content-center pe-sm-5"
+        class="col-12 col-sm-6 mb-3 mb-sm-0 d-flex align-items-sm-center  align-items-end justify-content-sm-end justify-content-center pe-sm-5"
       >
         <div class="img-box">
           <img src="/img/foto.jpg" alt="" />
@@ -73,7 +73,7 @@ export default {
       </div>
       <div
         id="right-col"
-        class="col-12 col-sm-6 ps-sm-5 main-content d-flex align-items-center justify-content-sm-start justify-content-center"
+        class="col-12 col-sm-6 ps-sm-5 mt-3 mb-sm-0 main-content align-items-sm-center  d-flex align-items-baseline justify-content-sm-start justify-content-center"
       >
         <div class="text-center">
           <h1>
