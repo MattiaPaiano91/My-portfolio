@@ -12,7 +12,7 @@ onBeforeMount(()=> {
 </script>
 
 <template>
-  <div class="container pb-5">
+  <div class="container show pb-5">
     <div class="show-img my-5">
       <img :src="project.img" alt="" />
     </div>
@@ -33,7 +33,6 @@ onBeforeMount(()=> {
   min-height: $mainHeight;
   .show-img {
     width: 60%;
-    width: 500px;
     margin: 0 auto;
     img {
       width: 100%;

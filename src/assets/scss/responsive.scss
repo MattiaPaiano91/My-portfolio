@@ -25,10 +25,6 @@
   }
 }
 
-@media screen and (max-width: 900px) {
-  
-}
-
 @media screen and (max-width: 768px) {
   header {
     font-size: 1rem;
@@ -77,14 +73,18 @@
   .index{
     padding-top: 100px;
   }
-  .main {
+  .main, .show {
     padding: 0px !important;
     min-height: calc(100vh - 400px);
   }
-  #left-col {
-    height: calc(50vh);
+  .show{
+    padding-top: 50px!important;
+    .description{
+      width: 80%;
+      margin: 0 auto;
+    }
   }
-  #right-col {
+  #left-col, #right-col {
     height: calc(50vh);
   }
   .navbar {
