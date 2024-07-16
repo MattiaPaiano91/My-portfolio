@@ -86,7 +86,8 @@ export default {
 
 <template>
   <button
-    class="d-sm-none"
+    :class="data.themeFlag ? 'mode-light' : 'dark-header'"
+    class="d-sm-none position-fixed"
     type="button"
     data-bs-toggle="offcanvas"
     data-bs-target="#offcanvasExample"
@@ -111,6 +112,40 @@ export default {
         data-bs-dismiss="offcanvas"
         aria-label="Close"
       ></button>
+    </div>
+    <div class=" offcanvas-body">
+      <div class="offcanvas-img">
+        <img src="/public/img/LogoBianco.svg" alt="">
+      </div>
+      <nav class=" d-flex flex-column">
+        <router-link  class="router-link" :to="{ name: 'WelcomeApp' }">
+            <div
+              :style="data.themeFlag ? 'color:black' : 'color:white'"
+              class="hover"
+              data-bs-dismiss="offcanvas"
+            >
+              Home
+            </div>
+          </router-link>
+           <router-link  class="router-link" :to="{ name: 'project-index' }">
+            <div
+              :style="data.themeFlag ? 'color:black' : 'color:white'"
+              class="hover"
+              data-bs-dismiss="offcanvas"
+            >
+              Porfolio
+            </div>
+          </router-link>
+          <router-link class="router-link" :to="{ name: 'contact-me' }">
+            <div
+              :style="data.themeFlag ? 'color:black' : 'color:white'"
+              class="hover"
+              data-bs-dismiss="offcanvas"
+            >
+              Contattami
+            </div>
+          </router-link>
+      </nav>
     </div>
   </div>
   <header
@@ -179,7 +214,14 @@ export default {
 @use "../assets/scss/main.scss" as *;
 
 @import url("https://fonts.googleapis.com/css2?family=Montserrat&display=swap");
-
+.offcanvas-img{
+  width: 50%;
+  margin: 0 auto;
+ img{
+  width: 100%;
+  object-fit: contain;
+ }
+}
 .dark-header {
   background-color: #1d242d;
   color: white;
