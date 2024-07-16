@@ -152,7 +152,7 @@ export default {
     :class="data.themeFlag ? 'mode-light' : 'dark-header'"
     class="container-fluid d-none justify-content-around align-items-center d-sm-flex"
   >
-    <div class="burgher-menu position-relative">
+    <div class="icon-holder burgher-menu position-relative">
       <i class="icon fa-solid fa-bars fa position-absolute"></i>
       <i class="icon fa-solid fa-x fa position-absolute"></i>
     </div>
@@ -237,7 +237,7 @@ header {
   position: fixed;
   z-index: 2;
   font-size: 1.4em;
-  .burgher-menu {
+  .icon-holder {
     width: 30px;
   }
   nav {
