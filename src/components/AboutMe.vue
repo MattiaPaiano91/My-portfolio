@@ -61,8 +61,8 @@ export default {
 </script>
 
 <template>
-  <div class="col-12 position-relative p-5 p-xl-0">
-    <div class="back-img">
+  <div class="col-12 position-relative p-5 p-md-0">
+    <div class="back-img d-none d-md-block">
       <div :class="data.themeFlag ? 'white-back' : 'black-back'"></div>
     </div>
     <div class="about-me">
@@ -140,14 +140,14 @@ export default {
 <style scoped lang="scss">
 .back-img {
   @import "../assets/scss/partials/variables.scss";
-  width: 100%;
-  height: $mainHeight;
+  width: 100vw;
+  
   background-image: url("../../public/img/OndaMattia.svg");
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
   position: absolute;
-  width: 100%;
+  
   height: 100%;
   z-index: 0;
   opacity: 0.3;
@@ -162,7 +162,7 @@ export default {
   }
 
   .black-back {
-    background-color: rgb(15, 15, 15);
+    background-color:#1A202C;
     width: 100%;
     height: 100%;
     position: absolute;
@@ -172,7 +172,7 @@ export default {
 }
 
 .about-me {
-  width: 100%;
+  width: 80%;
   height: 100%;
   margin: 20px auto 150px;
   font-size: 1.5rem;
