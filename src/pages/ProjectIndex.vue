@@ -50,8 +50,8 @@ onBeforeMount(()=> {
 @use "../assets/scss/main.scss" as *;
 @import "../assets/scss/partials/variables.scss";
 .container {
-  min-height: $mainHeight;
-  margin-bottom: 150px;
+  height: $mainHeight;
+  overflow: hidden;
   .project {
     width: calc(100% / 3);
     padding: 10px;

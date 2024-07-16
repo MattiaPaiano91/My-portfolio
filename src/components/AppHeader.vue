@@ -114,7 +114,7 @@ export default {
     </div>
   </div>
   <header
-    :class="data.themeFlag ? 'mode-light' : 'mode-dark'"
+    :class="data.themeFlag ? 'mode-light' : 'dark-header'"
     class="container-fluid d-none justify-content-around align-items-center d-sm-flex"
   >
     <div class="burgher-menu position-relative">
@@ -180,23 +180,27 @@ export default {
 
 @import url("https://fonts.googleapis.com/css2?family=Montserrat&display=swap");
 
+.dark-header {
+  background-color: #1d242d;
+  color: white;
+}
 .offcanvas-button {
   font-size: 1.5rem;
   padding: 20px;
 }
 header {
-  .burgher-menu{
-    width: 30px;
-  }
-  nav {
-    width: 50%;
-  }
   width: 100%;
   height: 100px;
   border-bottom: 1px solid lightgray;
   position: fixed;
   z-index: 2;
   font-size: 1.4em;
+  .burgher-menu {
+    width: 30px;
+  }
+  nav {
+    width: 50%;
+  }
   .logo-box {
     position: absolute;
     width: 100px;
@@ -219,7 +223,8 @@ header {
   .hover {
     padding: 5px 50px;
     text-align: center;
-    font-weight: 500;
+    font-weight: 300;
+    font-size: 1.8rem;
   }
 
   .animation-link {

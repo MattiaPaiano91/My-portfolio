@@ -18,12 +18,15 @@
   .navbar {
     width: 30%;
   }
+  .hover {
+    padding: 5px 30px !important;
+    font-size: 1.5rem!important;
+    margin: 0 5px;
+  }
 }
 
 @media screen and (max-width: 900px) {
-  .hover {
-    padding: 5px 30px !important;
-  }
+  
 }
 
 @media screen and (max-width: 768px) {
@@ -57,6 +60,8 @@
   }
   .hover {
     padding: 5px 15px !important;
+    font-size: 1.2rem!important;
+    margin: 0 2px;
   }
 }
 
