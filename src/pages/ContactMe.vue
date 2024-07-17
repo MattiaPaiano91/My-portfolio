@@ -7,7 +7,7 @@ import { data } from "../store";
     <h1>Contattami</h1>
     <div class="contact-content" :class="data.themeFlag ? '' : 'bg-dark'">
       <div class="contact-info">
-        <p>Non esitare a contattarmi per qualsiasi domanda o collaborazione.</p>
+        <p id="title">Non esitare a contattarmi per qualsiasi domanda o collaborazione.</p>
         <ul class="text-center">
           <li>
             <strong>Email:</strong>
