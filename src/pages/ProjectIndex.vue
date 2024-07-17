@@ -51,7 +51,7 @@ onMounted(()=> {
 @import "../assets/scss/partials/variables.scss";
 
 .container {
-  height: $mainHeight;
+  min-height: $mainHeight ;
   .project {
     width: calc(100% / 3);
     padding: 10px;
