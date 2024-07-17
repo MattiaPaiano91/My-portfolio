@@ -177,13 +177,16 @@ export default {
   margin: 20px auto 150px;
   font-size: 1.5rem;
   line-height: 1.6;
+  
   .bio-section {
     margin-bottom: 100px;
     margin: 0 auto;
     max-width: 800px !important;
-   
+    
   }
-
+  & > *{
+      margin-bottom: 50px!important;
+    }
   .emoji {
     font-size: 1.4em;
     object-fit: contain;
