@@ -11,7 +11,7 @@ function scrollToTop() {
 function watchProject(projectID) {
   projectStore.setActiveProjectId(projectID);
 }
-onBeforeMount(()=> {
+onMounted(()=> {
   window.scroll({
         top: 0,
         behavior: "instant",
