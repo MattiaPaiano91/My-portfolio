@@ -1,5 +1,12 @@
 <script setup>
+import { onMounted, ref } from "vue";
 import { data } from "../store";
+onMounted(()=> {
+  window.scroll({
+        top: 0,
+        behavior: "instant",
+      });
+})
 </script>
 
 <template>
