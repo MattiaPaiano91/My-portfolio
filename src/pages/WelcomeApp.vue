@@ -61,7 +61,9 @@ export default {
 </script>
 
 <template>
-  <div class="container-fluid p-0">
+  
+  <div class="container-fluid p-0 position-relative">
+  
     <div class="row g-0">
       <div
         id="left-col"
@@ -94,6 +96,16 @@ export default {
 
 <style lang="scss" scoped>
 @use "../assets/scss/main" as *;
+.icons {
+    width: 60px;
+    height: 30px;
+    border: 1px solid darkgray;
+    border-radius: 15px;
+    padding: 2px;
+    i {
+      font-size: 1rem;
+    }
+  }
 
 .name {
   font-size: 4rem;
