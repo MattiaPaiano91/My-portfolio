@@ -44,7 +44,7 @@ export default {
 </script>
 
 <template>
-  <footer class="text-center">
+  <footer class="text-center align-baseline">
     <swiper
       :loop="true"
       :autoplay="{

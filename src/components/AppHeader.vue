@@ -86,14 +86,14 @@ export default {
 
 <template>
   <button
-    :class="data.themeFlag ? 'mode-light' : 'dark-header'"
-    class="d-sm-none position-fixed"
+    
+    class="d-sm-none position-fixed offcanvas-button"
     type="button"
     data-bs-toggle="offcanvas"
     data-bs-target="#offcanvasExample"
     aria-controls="offcanvasExample"
   >
-    <i class="icon fa-solid fa-bars fa offcanvas-button"></i>
+    <i class="icon fa-solid fa-bars fa offcanvas-icon"></i>
   </button>
 
   <div
@@ -222,7 +222,8 @@ export default {
 }
 .offcanvas-button {
   font-size: 1.5rem;
-  padding: 20px;
+  padding:10px 20px;
+  background-color: transparent;
 }
 header {
   width: 100%;

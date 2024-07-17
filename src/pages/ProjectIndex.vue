@@ -49,9 +49,9 @@ onBeforeMount(()=> {
 <style lang="scss" scoped>
 @use "../assets/scss/main.scss" as *;
 @import "../assets/scss/partials/variables.scss";
+
 .container {
   height: $mainHeight;
-  overflow: hidden;
   .project {
     width: calc(100% / 3);
     padding: 10px;
@@ -88,4 +88,5 @@ onBeforeMount(()=> {
     }
   }
 }
+@import "/src/assets/scss/responsive.scss";
 </style>
