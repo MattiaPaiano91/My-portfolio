@@ -90,6 +90,9 @@
   //     padding: 0px;
   //   }
   // }
+  header{
+    border-bottom: none;
+  }
   .img-box {
     margin: 0 auto;
   }
@@ -101,19 +104,19 @@
   .index{
     padding-top: 50px;
   }
-  .main, .show {
+  .main {
     padding: 50px 0px 0px 0px!important;
     min-height: calc(100vh - 400px);
   }
   .show{
-    padding-top: 50px!important;
+    // padding-top: 50px!important;
     .description{
       width: 80%;
       margin: 0 auto;
     }
   }
   #left-col, #right-col {
-    height: calc(50vh);
+    height: calc(50vh - 50px);
   }
   .navbar {
     width: 80% !important;

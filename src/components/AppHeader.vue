@@ -85,7 +85,12 @@ export default {
 </script>
 
 <template>
-  <button
+ 
+  <header
+    :class="data.themeFlag ? 'mode-light' : 'dark-header'"
+    class="container-fluid  justify-content-around align-items-center d-flex position-relative"
+  >
+     <button
     
     class="d-sm-none position-fixed offcanvas-button"
     type="button"
@@ -93,7 +98,9 @@ export default {
     data-bs-target="#offcanvasExample"
     aria-controls="offcanvasExample"
   >
-    <i class="icon fa-solid fa-bars fa offcanvas-icon"></i>
+    <i data-bs-toggle="offcanvas"
+    data-bs-target="#offcanvasExample"
+    aria-controls="offcanvasExample" class="icon fa-solid fa-bars fa offcanvas-icon z-1"></i>
   </button>
 
   <div
@@ -103,9 +110,7 @@ export default {
     aria-labelledby="offcanvasExampleLabel"
   >
     <div class="offcanvas-header">
-      <div class="logo-box">
-        <img src="/img/LogoNero.svg" alt="" />
-      </div>
+      
       <button
         type="button"
         class="btn-close"
@@ -148,23 +153,19 @@ export default {
       </nav>
     </div>
   </div>
-  <header
-    :class="data.themeFlag ? 'mode-light' : 'dark-header'"
-    class="container-fluid d-none justify-content-around align-items-center d-sm-flex"
-  >
-    <div class="icon-holder burgher-menu position-relative">
+    <div class="icon-holder burgher-menu position-relative d-none d-sm-block">
       <i class="icon fa-solid fa-bars fa position-absolute"></i>
       <i class="icon fa-solid fa-x fa position-absolute"></i>
     </div>
 
-    <div class="logo-box burgher-menu">
+    <div class="logo-box burgher-menu d-none d-sm-block">
       <img
         :class="data.themeFlag ? '' : 'inverted'"
         src="/img/LogoBianco.svg"
         alt=""
       />
     </div>
-    <nav class="d-flex justify-content-around">
+    <nav class="d-flex justify-content-around d-none d-sm-block">
       <div class="animation-link">
         <router-link class="router-link" :to="{ name: 'WelcomeApp' }">
           <div
@@ -197,7 +198,7 @@ export default {
         </router-link>
       </div>
     </nav>
-    <div class="d-flex align-items-center icons">
+    <div class="d-flex align-items-center icons d-none d-sm-block">
       <i @click="switchToLight()" class="fa-regular fa fa-sun mode-dark"></i>
       <i @click="switchToDark()" class="fa-regular fa fa-moon mode-light"></i>
     </div>
@@ -208,22 +209,10 @@ export default {
 @use "../assets/scss/main.scss" as *;
 
 @import url("https://fonts.googleapis.com/css2?family=Montserrat&display=swap");
-.offcanvas-img {
-  width: 50%;
-  margin: 0 auto;
-  img {
-    width: 100%;
-    object-fit: contain;
-  }
-}
+
 .dark-header {
   background-color: #1d242d;
   color: white;
-}
-.offcanvas-button {
-  font-size: 1.5rem;
-  padding:10px 20px;
-  background-color: transparent;
 }
 header {
   width: 100%;
@@ -232,6 +221,20 @@ header {
   position: fixed;
   z-index: 2;
   font-size: 1.4em;
+  .offcanvas-img {
+  width: 50%;
+  margin: 0 auto;
+  img {
+    width: 100%;
+    object-fit: contain;
+  }
+}
+.offcanvas-button {
+  font-size: 1.5rem;
+  padding:10px 20px;
+  background-color: transparent;
+  left: 10%;
+}
   .animation-link{
     width: 350px;
    
