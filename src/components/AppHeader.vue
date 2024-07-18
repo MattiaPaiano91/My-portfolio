@@ -87,15 +87,10 @@ export default {
 <template>
   <header
     :class="data.themeFlag ? 'mode-light' : 'dark-header'"
-    class="container-fluid  position-relative"
+    class="container-fluid  "
   >
-    <button
-      class="d-sm-none position-fixed offcanvas-button"
-      type="button"
-      data-bs-toggle="offcanvas"
-      data-bs-target="#offcanvasExample"
-      aria-controls="offcanvasExample"
-    >
+    <div class="position-relative d-block d-sm-none">
+      <button class="d-sm-none position-fixed offcanvas-button" type="button">
       <i
         data-bs-toggle="offcanvas"
         data-bs-target="#offcanvasExample"
@@ -152,6 +147,7 @@ export default {
           </router-link>
         </nav>
       </div>
+    </div>
     </div>
     <div id="header-container" class="container-fluid justify-content-around align-items-center d-none d-sm-flex">
       <div class="icon-holder burgher-menu position-relative ">
@@ -238,7 +234,8 @@ header {
     font-size: 1.5rem;
     padding: 10px 20px;
     background-color: transparent;
-    left: 10%;
+    left: 5%;
+    top: 5%;
   }
   .animation-link {
     width: 350px;
