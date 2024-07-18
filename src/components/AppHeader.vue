@@ -85,122 +85,124 @@ export default {
 </script>
 
 <template>
- 
   <header
     :class="data.themeFlag ? 'mode-light' : 'dark-header'"
-    class="container-fluid  justify-content-around align-items-center d-flex position-relative"
+    class="container-fluid  position-relative"
   >
-     <button
-    
-    class="d-sm-none position-fixed offcanvas-button"
-    type="button"
-    data-bs-toggle="offcanvas"
-    data-bs-target="#offcanvasExample"
-    aria-controls="offcanvasExample"
-  >
-    <i data-bs-toggle="offcanvas"
-    data-bs-target="#offcanvasExample"
-    aria-controls="offcanvasExample" class="icon fa-solid fa-bars fa offcanvas-icon z-1"></i>
-  </button>
+    <button
+      class="d-sm-none position-fixed offcanvas-button"
+      type="button"
+      data-bs-toggle="offcanvas"
+      data-bs-target="#offcanvasExample"
+      aria-controls="offcanvasExample"
+    >
+      <i
+        data-bs-toggle="offcanvas"
+        data-bs-target="#offcanvasExample"
+        aria-controls="offcanvasExample"
+        class="icon fa-solid fa-bars fa offcanvas-icon z-1"
+      ></i>
+    </button>
 
-  <div
-    class="offcanvas w-100 offcanvas-start d-sm-none"
-    tabindex="-1"
-    id="offcanvasExample"
-    aria-labelledby="offcanvasExampleLabel"
-  >
-    <div class="offcanvas-header">
-      
-      <button
-        type="button"
-        class="btn-close"
-        data-bs-dismiss="offcanvas"
-        aria-label="Close"
-      ></button>
-    </div>
-    <div class="offcanvas-body">
-      <div class="offcanvas-img">
-        <img src="/public/img/LogoBianco.svg" alt="" />
+    <div
+      class="offcanvas w-100 offcanvas-start d-sm-none"
+      tabindex="-1"
+      id="offcanvasExample"
+      aria-labelledby="offcanvasExampleLabel"
+    >
+      <div class="offcanvas-header">
+        <button
+          type="button"
+          class="btn-close"
+          data-bs-dismiss="offcanvas"
+          aria-label="Close"
+        ></button>
       </div>
-      <nav class="d-flex flex-column">
-        <router-link class="router-link" :to="{ name: 'WelcomeApp' }">
-          <div
-            :style="data.themeFlag ? 'color:black' : 'color:white'"
-            class="hover"
-            data-bs-dismiss="offcanvas"
-          >
-            Home
-          </div>
-        </router-link>
-        <router-link class="router-link" :to="{ name: 'project-index' }">
-          <div
-            :style="data.themeFlag ? 'color:black' : 'color:white'"
-            class="hover"
-            data-bs-dismiss="offcanvas"
-          >
-            Porfolio
-          </div>
-        </router-link>
-        <router-link class="router-link" :to="{ name: 'contact-me' }">
-          <div
-            :style="data.themeFlag ? 'color:black' : 'color:white'"
-            class="hover"
-            data-bs-dismiss="offcanvas"
-          >
-            Contattami
-          </div>
-        </router-link>
+      <div class="offcanvas-body">
+        <div class="offcanvas-img">
+          <img src="/public/img/LogoBianco.svg" alt="" />
+        </div>
+        <nav class="d-flex flex-column">
+          <router-link class="router-link" :to="{ name: 'WelcomeApp' }">
+            <div
+              :style="data.themeFlag ? 'color:black' : 'color:white'"
+              class="hover"
+              data-bs-dismiss="offcanvas"
+            >
+              Home
+            </div>
+          </router-link>
+          <router-link class="router-link" :to="{ name: 'project-index' }">
+            <div
+              :style="data.themeFlag ? 'color:black' : 'color:white'"
+              class="hover"
+              data-bs-dismiss="offcanvas"
+            >
+              Porfolio
+            </div>
+          </router-link>
+          <router-link class="router-link" :to="{ name: 'contact-me' }">
+            <div
+              :style="data.themeFlag ? 'color:black' : 'color:white'"
+              class="hover"
+              data-bs-dismiss="offcanvas"
+            >
+              Contattami
+            </div>
+          </router-link>
+        </nav>
+      </div>
+    </div>
+    <div id="header-container" class="container-fluid justify-content-around align-items-center d-none d-sm-flex">
+      <div class="icon-holder burgher-menu position-relative ">
+        <i class="icon fa-solid fa-bars fa position-absolute"></i>
+        <i class="icon fa-solid fa-x fa position-absolute"></i>
+      </div>
+
+      <div class="logo-box burgher-menu ">
+        <img
+          :class="data.themeFlag ? '' : 'inverted'"
+          src="/img/LogoBianco.svg"
+          alt=""
+        />
+      </div>
+      <nav class="d-flex justify-content-around ">
+        <div class="animation-link">
+          <router-link class="router-link" :to="{ name: 'WelcomeApp' }">
+            <div
+              :style="data.themeFlag ? 'color:black' : 'color:white'"
+              class="hover"
+            >
+              Home
+            </div>
+          </router-link>
+        </div>
+
+        <div class="animation-link">
+          <router-link class="router-link" :to="{ name: 'project-index' }">
+            <div
+              :style="data.themeFlag ? 'color:black' : 'color:white'"
+              class="hover"
+            >
+              Portfolio
+            </div>
+          </router-link>
+        </div>
+        <div class="animation-link">
+          <router-link class="router-link" :to="{ name: 'contact-me' }">
+            <div
+              :style="data.themeFlag ? 'color:black' : 'color:white'"
+              class="hover"
+            >
+              Contattami
+            </div>
+          </router-link>
+        </div>
       </nav>
-    </div>
-  </div>
-    <div class="icon-holder burgher-menu position-relative d-none d-sm-block">
-      <i class="icon fa-solid fa-bars fa position-absolute"></i>
-      <i class="icon fa-solid fa-x fa position-absolute"></i>
-    </div>
-
-    <div class="logo-box burgher-menu d-none d-sm-block">
-      <img
-        :class="data.themeFlag ? '' : 'inverted'"
-        src="/img/LogoBianco.svg"
-        alt=""
-      />
-    </div>
-    <nav class="d-flex justify-content-around d-none d-sm-block">
-      <div class="animation-link">
-        <router-link class="router-link" :to="{ name: 'WelcomeApp' }">
-          <div
-            :style="data.themeFlag ? 'color:black' : 'color:white'"
-            class="hover"
-          >
-            Home
-          </div>
-        </router-link>
+      <div class="d-flex align-items-center icons ">
+        <i @click="switchToLight()" class="fa-regular fa fa-sun mode-dark"></i>
+        <i @click="switchToDark()" class="fa-regular fa fa-moon mode-light"></i>
       </div>
-
-      <div class="animation-link">
-        <router-link class="router-link" :to="{ name: 'project-index' }">
-          <div
-            :style="data.themeFlag ? 'color:black' : 'color:white'"
-            class="hover"
-          >
-            Portfolio
-          </div>
-        </router-link>
-      </div>
-      <div class="animation-link">
-        <router-link class="router-link" :to="{ name: 'contact-me' }">
-          <div
-            :style="data.themeFlag ? 'color:black' : 'color:white'"
-            class="hover"
-          >
-            Contattami
-          </div>
-        </router-link>
-      </div>
-    </nav>
-    <div class="d-flex align-items-center icons d-none d-sm-block">
-      <i @click="switchToLight()" class="fa-regular fa fa-sun mode-dark"></i>
-      <i @click="switchToDark()" class="fa-regular fa fa-moon mode-light"></i>
     </div>
   </header>
 </template>
@@ -221,25 +223,28 @@ header {
   position: fixed;
   z-index: 2;
   font-size: 1.4em;
-  .offcanvas-img {
-  width: 50%;
-  margin: 0 auto;
-  img {
-    width: 100%;
-    object-fit: contain;
+  #header-container{
+    height: 100%;
   }
-}
-.offcanvas-button {
-  font-size: 1.5rem;
-  padding:10px 20px;
-  background-color: transparent;
-  left: 10%;
-}
-  .animation-link{
+  .offcanvas-img {
+    width: 50%;
+    margin: 0 auto;
+    img {
+      width: 100%;
+      object-fit: contain;
+    }
+  }
+  .offcanvas-button {
+    font-size: 1.5rem;
+    padding: 10px 20px;
+    background-color: transparent;
+    left: 10%;
+  }
+  .animation-link {
     width: 350px;
-   
-      .hover {
-        width: 100%;
+
+    .hover {
+      width: 100%;
       padding: 5px 50px;
       text-align: center;
       font-weight: 300;
@@ -270,8 +275,6 @@ header {
       font-size: 1rem;
     }
   }
-
-  
 
   .animation-link {
     opacity: 0;
