@@ -17,7 +17,7 @@ const router = createRouter({
       meta: { pageTitle: "MP | Welcome" },
     },
     {
-      path: "/ShowProject/",
+      path: "/Project/show",
       name: "show-project",
       component: ShowProject,
       meta: { pageTitle: "MP | Show" },
