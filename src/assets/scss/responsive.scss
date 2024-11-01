@@ -1,4 +1,4 @@
-@import "/src/assets/scss/partials/variables.scss";
+@import "./partials/variables.scss";
 
 @media screen and (max-width: 1600px) {
   .animation-link{
@@ -14,6 +14,14 @@
       margin: 0 5px;
     }
   }
+
+   .img-box {
+    width: 400px;
+    height: 400px;
+    img{
+      width: 100%;
+    }
+  }
 }
 
 @media screen and (max-width: 1100px) {
@@ -23,6 +31,12 @@
   .img-box {
     width: 300px;
     height: 300px;
+    img{
+      width: 100%;
+    }
+  }
+   .about-me {
+    font-size: 1.4rem;
   }
   .name {
     font-size: 2rem;
