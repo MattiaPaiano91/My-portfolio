@@ -19,7 +19,7 @@ onMounted(()=> {
           <li>
             <strong>Email:</strong>
             <a href="mailto:mattia.paiano@example.com"
-              >paianomattia1@gmail.com</a
+              >paianomattia.dev@gmail.com</a
             >
           </li>
           <li><strong>Località:</strong> Lecce, Italia</li>
