@@ -14,6 +14,7 @@ export const useProjectStore = defineStore("project", {
         },
       ],
       activeProjectId: null,
+    
     };
   },
   getters: {
