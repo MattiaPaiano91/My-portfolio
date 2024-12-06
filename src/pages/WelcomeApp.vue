@@ -28,7 +28,7 @@ export default {
   mounted() {
     this.$nextTick(() => {
 
-      console.log(localStorage.getItem("initialAnimationDone"));
+   
       
       if(!localStorage.getItem("initialAnimationDone")){
         

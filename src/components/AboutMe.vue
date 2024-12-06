@@ -36,7 +36,7 @@ export default {
 
       // });
 
-      const elements = [".bio", ".studies", ".out", ".tv", ".idea"];
+      const elements = [".bio", ".studies", ".out", ".tv"];
 
       const directions = [-100, 100, -100, 100, -100];
 
