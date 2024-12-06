@@ -24,16 +24,23 @@ export default {
   },
   beforeMount(){
     this.scrollToTop();
-  }
-  ,
+  },
   mounted() {
     this.$nextTick(() => {
+
+      console.log(localStorage.getItem("initialAnimationDone"));
       
-      gsap.fromTo(
-        ".animations",
-        { opacity: 0 },
-        { opacity: 1, duration: 2, delay: 0.5, stagger: 0.3, ease: "power2" }
-      );
+      if(!localStorage.getItem("initialAnimationDone")){
+        
+        gsap.fromTo(
+          ".animations",
+          { opacity: 0 },
+          { opacity: 1, duration: 2, delay: 0.5, stagger: 0.3, ease: "power2" }
+        );
+
+      };
+      
+      localStorage.setItem("initialAnimationDone", "true")
       if (window.innerWidth > 560) {
         gsap.registerPlugin(ScrollTrigger);
         gsap.to("#left-col", {
@@ -70,7 +77,7 @@ export default {
         class="col-12 col-sm-6 mb-3 mb-sm-0 d-flex align-items-sm-center  align-items-end justify-content-sm-end justify-content-center pe-sm-5"
       >
         <div class="img-box">
-          <img src="/img/foto.jpg" alt="" />
+          <img src="/img/foto.webp" alt="" />
         </div>
       </div>
       <div

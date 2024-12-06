@@ -31,6 +31,7 @@ export default {
   },
   mounted() {
     gsap.set(".fa-sun", { autoAlpha: 0, duration: 0 });
+     gsap.set(".animation-link", { autoAlpha: 0 });
     gsap.set(".fa-moon", { x: 23, duration: 0 });
     this.$nextTick(() => {
       gsap.fromTo(
@@ -45,11 +46,11 @@ export default {
     burgherItem.addEventListener("click", () => {
       if (this.menuFlag) {
         gsap.to(".logo-box", { autoAlpha: 0 });
-        let header = gsap.to("header", { height: 150, duration: 0.5 });
+        gsap.to("header", { height: 150, duration: 0.5 });
         gsap.fromTo(
           ".animation-link",
-          { x: -100, opacity: 0 },
-          { x: 0, opacity: 1, duration: 0.5, stagger: 0.2 }
+          { x: -100, autoAlpha: 0 },
+          { x: 0, autoAlpha: 1, duration: 0.5, stagger: 0.2 }
         );
         gsap.fromTo(".fa-bars", { autoAlpha: 1 }, { autoAlpha: 0 });
         gsap.fromTo(".fa-x", { autoAlpha: 0 }, { autoAlpha: 1 });
@@ -58,7 +59,7 @@ export default {
         gsap.to("header", { height: 100, duration: 0.5 });
         gsap.to(".animation-link", {
           x: -100,
-          opacity: 0,
+          autoAlpha: 0,
           duration: 0.5,
           stagger: 0.1,
         });
@@ -69,7 +70,10 @@ export default {
     });
 
     let menuItems = document.querySelectorAll(".animation-link");
-    for (const menuItem of menuItems) {
+
+    const menuItemArray = Array.of(...menuItems);
+    
+    menuItemArray.forEach((menuItem) => {
       let tl = gsap
         .timeline({ paused: true })
         .to(menuItem.querySelector(".hover"), {
@@ -79,7 +83,7 @@ export default {
         });
       menuItem.addEventListener("mouseenter", () => tl.play());
       menuItem.addEventListener("mouseleave", () => tl.reverse());
-    }
+    });
   },
 };
 </script>
@@ -87,82 +91,85 @@ export default {
 <template>
   <header
     :class="data.themeFlag ? 'mode-light' : 'dark-header'"
-    class="container-fluid  "
+    class="container-fluid"
   >
     <div class="position-relative d-block d-sm-none">
       <button class="d-sm-none position-fixed offcanvas-button" type="button">
-      <i
-        data-bs-toggle="offcanvas"
-        data-bs-target="#offcanvasExample"
-        aria-controls="offcanvasExample"
-        class="icon fa-solid fa-bars fa offcanvas-icon z-1"
-      ></i>
-    </button>
+        <i
+          data-bs-toggle="offcanvas"
+          data-bs-target="#offcanvasExample"
+          aria-controls="offcanvasExample"
+          class="icon fa-solid fa-bars fa offcanvas-icon z-1"
+        ></i>
+      </button>
 
-    <div
-      class="offcanvas w-100 offcanvas-start d-sm-none"
-      tabindex="-1"
-      id="offcanvasExample"
-      aria-labelledby="offcanvasExampleLabel"
-    >
-      <div class="offcanvas-header">
-        <button
-          type="button"
-          class="btn-close"
-          data-bs-dismiss="offcanvas"
-          aria-label="Close"
-        ></button>
-      </div>
-      <div class="offcanvas-body">
-        <div class="offcanvas-img">
-          <img src="/public/img/LogoBianco.svg" alt="" />
+      <div
+        class="offcanvas w-100 offcanvas-start d-sm-none"
+        tabindex="-1"
+        id="offcanvasExample"
+        aria-labelledby="offcanvasExampleLabel"
+      >
+        <div class="offcanvas-header">
+          <button
+            type="button"
+            class="btn-close"
+            data-bs-dismiss="offcanvas"
+            aria-label="Close"
+          ></button>
         </div>
-        <nav class="d-flex flex-column">
-          <router-link class="router-link" :to="{ name: 'WelcomeApp' }">
-            <div
-              :style="data.themeFlag ? 'color:black' : 'color:white'"
-              class="hover"
-              data-bs-dismiss="offcanvas"
-            >
-              Home
-            </div>
-          </router-link>
-          <router-link class="router-link" :to="{ name: 'project-index' }">
-            <div
-              :style="data.themeFlag ? 'color:black' : 'color:white'"
-              class="hover"
-              data-bs-dismiss="offcanvas"
-            >
-              Porfolio
-            </div>
-          </router-link>
-          <router-link class="router-link" :to="{ name: 'contact-me' }">
-            <div
-              :style="data.themeFlag ? 'color:black' : 'color:white'"
-              class="hover"
-              data-bs-dismiss="offcanvas"
-            >
-              Contattami
-            </div>
-          </router-link>
-        </nav>
+        <div class="offcanvas-body">
+          <div class="offcanvas-img">
+            <img src="/public/img/LogoBianco.svg" alt="" />
+          </div>
+          <nav class="d-flex flex-column">
+            <router-link class="router-link" :to="{ name: 'WelcomeApp' }">
+              <div
+                :style="data.themeFlag ? 'color:black' : 'color:white'"
+                class="hover"
+                data-bs-dismiss="offcanvas"
+              >
+                Home
+              </div>
+            </router-link>
+            <router-link class="router-link" :to="{ name: 'project-index' }">
+              <div
+                :style="data.themeFlag ? 'color:black' : 'color:white'"
+                class="hover"
+                data-bs-dismiss="offcanvas"
+              >
+                Porfolio
+              </div>
+            </router-link>
+            <router-link class="router-link" :to="{ name: 'contact-me' }">
+              <div
+                :style="data.themeFlag ? 'color:black' : 'color:white'"
+                class="hover"
+                data-bs-dismiss="offcanvas"
+              >
+                Contattami
+              </div>
+            </router-link>
+          </nav>
+        </div>
       </div>
     </div>
-    </div>
-    <div id="header-container" class="container-fluid justify-content-around align-items-center d-none d-sm-flex">
-      <div class="icon-holder burgher-menu position-relative ">
+    <div
+      id="header-container"
+      class="container-fluid justify-content-around align-items-center d-none d-sm-flex"
+    >
+      <div class="icon-holder burgher-menu position-relative">
         <i class="icon fa-solid fa-bars fa position-absolute"></i>
         <i class="icon fa-solid fa-x fa position-absolute"></i>
       </div>
 
-      <div class="logo-box burgher-menu ">
+      <div class="logo-box burgher-menu">
         <img
           :class="data.themeFlag ? '' : 'inverted'"
           src="/img/LogoBianco.svg"
           alt=""
         />
       </div>
-      <nav class="d-flex justify-content-around ">
+      <nav class="d-flex justify-content-around">
         <div class="animation-link">
           <router-link class="router-link" :to="{ name: 'WelcomeApp' }">
             <div
@@ -195,7 +202,7 @@ export default {
           </router-link>
         </div>
       </nav>
-      <div class="d-flex align-items-center icons ">
+      <div class="d-flex align-items-center icons">
         <i @click="switchToLight()" class="fa-regular fa fa-sun mode-dark"></i>
         <i @click="switchToDark()" class="fa-regular fa fa-moon mode-light"></i>
       </div>
@@ -219,7 +226,7 @@ header {
   position: fixed;
   z-index: 2;
   font-size: 1.4em;
-  #header-container{
+  #header-container {
     height: 100%;
   }
   .offcanvas-img {

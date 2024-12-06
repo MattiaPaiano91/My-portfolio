@@ -7,6 +7,22 @@ onMounted(()=> {
         behavior: "instant",
       });
 })
+
+
+ function downloadCV() {
+     
+      const cvUrl = '/cv/Mattia Paiano CV.pdf';
+      
+     
+      const link = document.createElement('a');
+      link.href = cvUrl;
+      link.download = 'Mattia-paiano-cv.pdf'; 
+
+      document.body.appendChild(link);
+      link.click();
+      document.body.removeChild(link);
+    }
+    
 </script>
 
 <template>
@@ -45,6 +61,13 @@ onMounted(()=> {
           </li>
         </ul>
       </div>
+    </div>
+
+    <div class="div p-3">
+      <button @click="downloadCV()" class="download-cv">
+        Scarica CV <i class="fa-regular fa-circle-down"></i>
+      </button>
+     
     </div>
     <div class="img-box">
       <img
@@ -130,6 +153,15 @@ onMounted(()=> {
         }
       }
     }
+  }
+}
+
+.download-cv {
+  
+  transition: all 0.1s ease-in-out;
+  &:hover{
+
+    box-shadow: 9px 7px 0px -3px rgba(0,0,0,1);
   }
 }
 </style>

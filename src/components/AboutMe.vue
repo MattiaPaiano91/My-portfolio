@@ -9,38 +9,39 @@ export default {
     };
   },
   mounted() {
-    function updateAge() {
-      const birthDate = new Date("1991-09-22"); // Sostituisci con la tua data di nascita
-      const today = new Date();
-      let age = today.getFullYear() - birthDate.getFullYear();
-      const m = today.getMonth() - birthDate.getMonth();
-      if (m < 0 || (m === 0 && today.getDate() < birthDate.getDate())) {
-        age--;
-      }
-      document.getElementById("age").textContent = age;
-    }
-
-    updateAge();
-    setInterval(updateAge, 1000 * 60 * 60 * 24); // Aggiorna ogni giorno
+    
+    setInterval(this.updateAge, 1000 * 60 * 60 * 24); 
 
     if (window.innerWidth > 560) {
+
       gsap.registerPlugin(ScrollTrigger);
 
-      gsap.to(".white-back", {
-        xPercent: 100,
+      // gsap.to(".white-back", {
 
-        duration: 3,
-        ease: "power1.inOut",
-        scrollTrigger: {
-          trigger: ".tech-stack",
-          toggleActions: "play pause none pause",
-          end: "center top",
-        },
-      });
+      //   xPercent: 100,
+
+      //   duration: 3,
+
+      //   ease: "power1.inOut",
+
+      //   scrollTrigger: {
+
+      //     trigger: ".tech-stack",
+
+      //     toggleActions: "play pause none pause",
+
+      //     end: "center top",
+
+      //   },
+
+      // });
+
       const elements = [".bio", ".studies", ".out", ".tv", ".idea"];
+
       const directions = [-100, 100, -100, 100, -100];
 
       elements.forEach((element, index) => {
+
         gsap.set(element, { opacity: 0, xPercent: `${directions[index]}` });
 
         gsap.to(element, {
@@ -57,22 +58,35 @@ export default {
       });
     }
   },
+
+  methods: {
+
+     updateAge() {
+      const birthDate = new Date("1991-09-22"); 
+      const today = new Date();
+      let age = today.getFullYear() - birthDate.getFullYear();
+      const m = today.getMonth() - birthDate.getMonth();
+      if (m < 0 || (m === 0 && today.getDate() < birthDate.getDate())) {
+        age--;
+      }
+      document.getElementById("age").textContent = age;
+    }
+
+  }
 };
 </script>
 
 <template>
   <div class="col-12 position-relative p-5 p-md-0">
-    <div class="back-img d-none d-md-block">
+    <!-- <div class="back-img d-none d-md-block">
       <div :class="data.themeFlag ? 'white-back' : 'black-back'"></div>
-    </div>
+    </div> -->
     <div class="about-me">
       <section class="bio-section bio">
         <h2>Ciao!</h2>
         <p>
-          <span class="emoji">👨‍💻</span>Sono Mattia, uno sviluppatore web di
-          <span id="age" class="highlight">32</span> anni. Il mio viaggio nel
-          mondo dello sviluppo è nato dalla mia passione per il gaming e la
-          tecnologia, e ora sono qui per lasciare il mio segno nel web.
+          Sono Mattia, uno sviluppatore web, e ho
+          <span id="age" class="highlight">33</span> anni(🥲).
         </p>
       </section>
 
@@ -125,14 +139,14 @@ export default {
         </p>
       </section>
 
-      <section class="bio-section idea">
+      <!-- <section class="bio-section idea">
         <p class="py-2">
           <span class="emoji">💡</span>Sono alla ricerca di nuove sfide
           tecnologiche e pronto a collaborare su progetti innovativi. Se state
           cercando un developer che porta entusiasmo e creatività nel vostro
           team, sarò felice di parlarne!
         </p>
-      </section>
+      </section> -->
     </div>
   </div>
 </template>
