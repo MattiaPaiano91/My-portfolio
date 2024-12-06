@@ -28,16 +28,16 @@ export default {
   mounted() {
     this.$nextTick(() => {
 
-   
+      setInterval(()=>{
+        localStorage.clear()
+      },1000 * 60 * 60 * 24)
       
       if(!localStorage.getItem("initialAnimationDone")){
-        
         gsap.fromTo(
           ".animations",
           { opacity: 0 },
           { opacity: 1, duration: 2, delay: 0.5, stagger: 0.3, ease: "power2" }
         );
-
       };
       
       localStorage.setItem("initialAnimationDone", "true")
