@@ -169,7 +169,7 @@ export default {
           alt=""
         />
       </div>
-      <nav class="d-flex justify-content-around">
+      <nav class="d-flex justify-content-around w-100">
         <div class="animation-link">
           <router-link class="router-link" :to="{ name: 'WelcomeApp' }">
             <div
@@ -241,7 +241,7 @@ header {
     font-size: 1.5rem;
     padding: 10px 20px;
     background-color: transparent;
-    left: 5%;
+    left: 3%;
     top: 5%;
   }
   .animation-link {

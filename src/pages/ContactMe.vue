@@ -22,7 +22,7 @@ onMounted(()=> {
       link.click();
       document.body.removeChild(link);
     }
-    
+
 </script>
 
 <template>
@@ -62,13 +62,13 @@ onMounted(()=> {
         </ul>
       </div>
     </div>
-
-    <div class="div p-3">
-      <button @click="downloadCV()" class="download-cv">
+    <div class="div p-3" >
+      <button @click="downloadCV()" class="download-cv" :class="data.themeFlag ? '' : 'bg-dark'">
         Scarica CV <i class="fa-regular fa-circle-down"></i>
       </button>
      
     </div>
+
     <div class="img-box">
       <img
         :class="data.themeFlag ? '' : 'inverted'"

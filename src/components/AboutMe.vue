@@ -77,21 +77,21 @@ export default {
 </script>
 
 <template>
-  <div class="col-12 position-relative p-5 p-md-0">
+  <div class="col-12 position-relative p-3 p-md-5 p-md-0">
     <!-- <div class="back-img d-none d-md-block">
       <div :class="data.themeFlag ? 'white-back' : 'black-back'"></div>
     </div> -->
     <div class="about-me">
       <section class="bio-section bio">
         <h2>Ciao!</h2>
-        <p>
+        <p class="p-0">
           Sono Mattia, uno sviluppatore web, e ho
           <span id="age" class="highlight">33</span> anni(🥲).
         </p>
       </section>
 
       <section class="bio-section studies">
-        <p>
+        <p class="p-0">
           <span class="emoji">🎓</span> Ho completato un intenso corso di
           formazione nell'aprile 2024, dove ho acquisito solide competenze in
           diverse tecnologie web. Il mio toolkit include:
@@ -106,7 +106,7 @@ export default {
           <span class="tech-item">MySQL</span>
           <span class="tech-item">Sass</span>
         </div>
-        <p>
+        <p class="p-0">
           Inoltre, sono sempre alla ricerca di nuove sfide e sto espandendo le
           mie competenze con:
         </p>
@@ -116,7 +116,7 @@ export default {
           <span class="tech-item learning">Ionic</span>
           <span class="tech-item learning">GraphQL</span>
         </div>
-        <p>
+        <p class="p-0">
           Questa combinazione di tecnologie mi permette di creare applicazioni
           web complete, dal frontend al backend, con un occhio di riguardo per
           l'esperienza utente.
@@ -124,7 +124,7 @@ export default {
       </section>
       <section class="bio-section out py-3">
         <h2>Fuori dal codice</h2>
-        <p>
+        <p class="p-0">
           <span class="emoji">🥁</span> Quando non sto programmando, mi
           troverete probabilmente a suonare la batteria. La musica è la mia
           seconda passione.
@@ -132,7 +132,7 @@ export default {
       </section>
 
       <section class="bio-section tv">
-        <p>
+        <p class="p-0">
           <span class="emoji">📺</span> Sono un grande appassionato di serie TV
           e anime. Anche se il tempo libero scarseggia, cerco sempre di
           ritagliarmi un momento per una buona storia.
