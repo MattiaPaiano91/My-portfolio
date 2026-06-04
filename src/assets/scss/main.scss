@@ -7,6 +7,15 @@
   font-family: "Poppins", sans-serif;
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: #f8f9ff;
+  color: #101828;
+}
+
 .fas,
 .fa-solid,
 .fab,
@@ -17,17 +26,17 @@
 
 button {
   border: none;
-  background-color: white;
+  background-color: transparent;
 }
 
 .mode-light {
-  color: black;
-  background-color: white;
+  color: #101828;
+  background-color: #f8f9ff;
 }
 
 .mode-dark {
-  color: white;
-  background-color: #1A202C;
+  color: #f8fafc;
+  background-color: #101828;
 }
 
 .router-link {
@@ -36,6 +45,8 @@ button {
 }
 
 .main {
-  padding-top: 160px;
+  padding-top: 120px;
+  min-height: calc(100vh - 120px);
 }
+
 @import "/src/assets/scss/responsive.scss";

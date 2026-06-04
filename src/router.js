@@ -1,11 +1,9 @@
 import { createRouter, createWebHistory } from "vue-router";
 import ShowProject from "./pages/ShowProject.vue";
 import ProjectIndex from "./pages/ProjectIndex.vue";
-import NotFound from "./pages/NotFound.vue"
+import NotFound from "./pages/NotFound.vue";
 import WelcomeApp from "./pages/WelcomeApp.vue";
 import ContactMe from "./pages/ContactMe.vue";
-import App from "./App.vue";
-
 
 const router = createRouter({
   history: createWebHistory(),
@@ -22,30 +20,29 @@ const router = createRouter({
       component: ShowProject,
       meta: { pageTitle: "MP | Show" },
     },
-
-    {
-      path: "/:catchAll(.*)",
-      name: "not-found",
-      component: NotFound,
-      meta: { pageTitle: "MP | Oopsie" },
-    },
-
     {
       path: "/Project/index",
       name: "project-index",
       component: ProjectIndex,
       meta: { pageTitle: "MP | Progetti" },
     },
-
     {
       path: "/ContactMe",
       name: "contact-me",
       component: ContactMe,
       meta: { pageTitle: "MP | Contatti" },
     },
+    {
+      path: "/:catchAll(.*)",
+      name: "not-found",
+      component: NotFound,
+      meta: { pageTitle: "MP | Oopsie" },
+    },
   ],
 });
-router.beforeEach((to, from) => {
+
+router.beforeEach((to) => {
   document.title = to.meta.pageTitle;
 });
+
 export { router };

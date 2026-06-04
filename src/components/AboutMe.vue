@@ -1,238 +1,208 @@
-<script>
-import { data } from "../store.js";
+<script setup>
+import { onMounted } from "vue";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/all";
-export default {
-  data() {
-    return {
-      data,
-    };
+import SectionTitle from "./SectionTitle.vue";
+import SkillBadge from "./SkillBadge.vue";
+import { skillGroups } from "../data/skills.js";
+
+const introCards = [
+  {
+    title: "Ciao",
+    text: "Sono Mattia, sviluppatore web/full-stack. Negli ultimi lavori mi sono mosso soprattutto tra gestionali, dashboard, mappe interattive e backend API-driven, cercando sempre di tenere il codice leggibile e il prodotto davvero usabile.",
   },
-  mounted() {
-    
-    setInterval(this.updateAge, 1000 * 60 * 60 * 24); 
+  {
+    title: "Percorso",
+    text: "Il bootcamp e stato solo l'inizio. La parte piu utile e arrivata dopo, lavorando su progetti veri: frontend moderni, backend API, database relazionali e sistemi multi-tenant dove le scelte tecniche pesano davvero.",
+  },
+  {
+    title: "Fuori dal codice",
+    text: "Fuori dal codice mi trovi tra palestra, batteria, serie TV, anime e qualche side project che continuo a rimandare ma non chiudo mai davvero.",
+  },
+];
 
-    if (window.innerWidth > 560) {
+const experienceHighlights = [
+  "Sul frontend lavoro soprattutto con React e Next.js, di solito su dashboard, tool interni e interfacce dove conta piu la chiarezza che l'effetto wow.",
+  "Sul backend uso Python e FastAPI per costruire API pulite, servizi stabili e flussi che restino semplici anche quando il progetto cresce.",
+  "Con PostgreSQL e PostGIS mi trovo bene quando entrano in gioco dati territoriali, query spaziali, separazione dei dati e performance.",
+  "Negli stack piu completi finisco spesso a toccare anche OpenLayers, Keycloak, Docker, GitLab CI/CD e ambienti Linux o WSL.",
+];
 
-      gsap.registerPlugin(ScrollTrigger);
-
-      // gsap.to(".white-back", {
-
-      //   xPercent: 100,
-
-      //   duration: 3,
-
-      //   ease: "power1.inOut",
-
-      //   scrollTrigger: {
-
-      //     trigger: ".tech-stack",
-
-      //     toggleActions: "play pause none pause",
-
-      //     end: "center top",
-
-      //   },
-
-      // });
-
-      const elements = [".bio", ".studies", ".out", ".tv"];
-
-      const directions = [-100, 100, -100, 100, -100];
-
-      elements.forEach((element, index) => {
-
-        gsap.set(element, { opacity: 0, xPercent: `${directions[index]}` });
-
-        gsap.to(element, {
-          opacity: 1,
-          xPercent: 0,
-          duration: 1,
-          delay: 0.1,
-          ease: "power4.out",
+onMounted(() => {
+  if (window.innerWidth > 560) {
+    gsap.registerPlugin(ScrollTrigger);
+    gsap.utils.toArray(".reveal-card").forEach((card, index) => {
+      gsap.fromTo(
+        card,
+        { autoAlpha: 0, y: 40 },
+        {
+          autoAlpha: 1,
+          y: 0,
+          duration: 0.85,
+          ease: "power3.out",
+          delay: index * 0.04,
           scrollTrigger: {
-            trigger: element,
-            toggleActions: "play pause none pause",
+            trigger: card,
+            start: "top 82%",
           },
-        });
-      });
-    }
-  },
-
-  methods: {
-
-     updateAge() {
-      const birthDate = new Date("1991-09-22"); 
-      const today = new Date();
-      let age = today.getFullYear() - birthDate.getFullYear();
-      const m = today.getMonth() - birthDate.getMonth();
-      if (m < 0 || (m === 0 && today.getDate() < birthDate.getDate())) {
-        age--;
-      }
-      document.getElementById("age").textContent = age;
-    }
-
+        }
+      );
+    });
   }
-};
+});
 </script>
 
 <template>
-  <div class="col-12 position-relative p-3 p-md-5 p-md-0">
-    <!-- <div class="back-img d-none d-md-block">
-      <div :class="data.themeFlag ? 'white-back' : 'black-back'"></div>
-    </div> -->
-    <div class="about-me">
-      <section class="bio-section bio">
-        <h2>Ciao!</h2>
-        <p class="p-0">
-          Sono Mattia, uno sviluppatore web, e ho
-          <span id="age" class="highlight">33</span> anni(🥲).
-        </p>
-      </section>
-
-      <section class="bio-section studies">
-        <p class="p-0">
-          <span class="emoji">🎓</span> Ho completato un intenso corso di
-          formazione nell'aprile 2024, dove ho acquisito solide competenze in
-          diverse tecnologie web. Il mio toolkit include:
-        </p>
-        <div class="tech-stack">
-          <span class="tech-item">HTML</span>
-          <span class="tech-item">CSS</span>
-          <span class="tech-item">JavaScript</span>
-          <span class="tech-item">Vue.js</span>
-          <span class="tech-item">PHP</span>
-          <span class="tech-item">Laravel</span>
-          <span class="tech-item">MySQL</span>
-          <span class="tech-item">Sass</span>
-        </div>
-        <p class="p-0">
-          Inoltre, sono sempre alla ricerca di nuove sfide e sto espandendo le
-          mie competenze con:
-        </p>
-        <div class="tech-stack">
-          <span class="tech-item learning">React</span>
-          <span class="tech-item learning">GSAP</span>
-          <span class="tech-item learning">Ionic</span>
-          <span class="tech-item learning">GraphQL</span>
-        </div>
-        <p class="p-0">
-          Questa combinazione di tecnologie mi permette di creare applicazioni
-          web complete, dal frontend al backend, con un occhio di riguardo per
-          l'esperienza utente.
-        </p>
-      </section>
-      <section class="bio-section out py-3">
-        <h2>Fuori dal codice</h2>
-        <p class="p-0">
-          <span class="emoji">🥁</span> Quando non sto programmando, mi
-          troverete probabilmente a suonare la batteria. La musica è la mia
-          seconda passione.
-        </p>
-      </section>
-
-      <section class="bio-section tv">
-        <p class="p-0">
-          <span class="emoji">📺</span> Sono un grande appassionato di serie TV
-          e anime. Anche se il tempo libero scarseggia, cerco sempre di
-          ritagliarmi un momento per una buona storia.
-        </p>
-      </section>
-
-      <!-- <section class="bio-section idea">
-        <p class="py-2">
-          <span class="emoji">💡</span>Sono alla ricerca di nuove sfide
-          tecnologiche e pronto a collaborare su progetti innovativi. Se state
-          cercando un developer che porta entusiasmo e creatività nel vostro
-          team, sarò felice di parlarne!
-        </p>
-      </section> -->
+  <section class="about-wrapper">
+    <div class="about-grid">
+      <article
+        v-for="card in introCards"
+        :key="card.title"
+        class="bio-card reveal-card"
+      >
+        <p class="card-label">{{ card.title }}</p>
+        <p>{{ card.text }}</p>
+      </article>
     </div>
-  </div>
+
+    <section class="experience-block reveal-card">
+      <SectionTitle
+        eyebrow="Esperienza"
+        title="Negli ultimi progetti ho lavorato piu su software vero che su esercizi da portfolio."
+        description="La parte che mi interessa di piu e questa: interfacce operative, backend che reggono bene, dati geospaziali, autenticazione e architetture pensate per essere mantenute senza impazzire dopo due mesi."
+      />
+
+      <div class="experience-list">
+        <article
+          v-for="item in experienceHighlights"
+          :key="item"
+          class="experience-card"
+        >
+          <p>{{ item }}</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="skills-block reveal-card">
+      <SectionTitle
+        eyebrow="Skills"
+        title="Stack attuale"
+        description="Ho lasciato un po sullo sfondo le tecnologie con cui ho iniziato e qui ho tenuto quelle che oggi uso piu spesso o che sento piu mie."
+      />
+
+      <div class="skills-groups">
+        <article
+          v-for="group in skillGroups"
+          :key="group.id"
+          class="skill-group"
+        >
+          <h3>{{ group.title }}</h3>
+          <div class="skill-list">
+            <SkillBadge
+              v-for="skill in group.items"
+              :key="skill"
+              :label="skill"
+              tone="strong"
+            />
+          </div>
+        </article>
+      </div>
+    </section>
+  </section>
 </template>
 
 <style scoped lang="scss">
-.back-img {
-  @import "../assets/scss/partials/variables.scss";
-  width: 100vw;
-  
-  background-image: url("../../public/img/OndaMattia.svg");
-  background-repeat: no-repeat;
-  background-position: center;
-  background-size: cover;
-  position: absolute;
-  
-  height: 100%;
-  z-index: 0;
-  opacity: 0.3;
+.about-wrapper {
+  width: 100%;
+  padding: 1rem 1rem 0;
+}
 
-  .white-back {
-    background-color: white;
-    width: 100%;
-    height: 100%;
-    position: absolute;
-    z-index: -1;
-    transform-origin: left;
-  }
+.about-grid {
+  width: min(1120px, 100%);
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1.2rem;
+}
 
-  .black-back {
-    background-color:#1A202C;
-    width: 100%;
-    height: 100%;
-    position: absolute;
-    z-index: -1;
-    transform-origin: left;
+.bio-card,
+.experience-block,
+.skills-block,
+.experience-card,
+.skill-group {
+  border-radius: 28px;
+  border: 1px solid rgba(152, 158, 221, 0.18);
+  background:
+    linear-gradient(180deg, rgba(152, 158, 221, 0.08), rgba(152, 158, 221, 0.03)),
+    rgba(255, 255, 255, 0.82);
+  box-shadow: 0 18px 40px rgba(15, 23, 42, 0.08);
+}
+
+.bio-card {
+  padding: 1.6rem;
+
+  p:last-child {
+    margin: 0;
+    line-height: 1.8;
   }
 }
 
-.about-me {
-  width: 80%;
-  height: 100%;
-  margin: 20px auto 150px;
-  font-size: 1.5rem;
-  line-height: 1.6;
-  
-  .bio-section {
-    margin-bottom: 100px;
-    margin: 0 auto;
-    max-width: 800px !important;
-    
-  }
-  & > *{
-      margin-bottom: 50px!important;
-    }
-  .emoji {
-    font-size: 1.4em;
-    object-fit: contain;
-  }
+.card-label {
+  margin-bottom: 0.85rem !important;
+  text-transform: uppercase;
+  letter-spacing: 0.16em;
+  font-size: 0.75rem !important;
+  color: #667085;
+}
 
-  .highlight {
-    background-color: #f1c40f;
-    padding: 3px 6px;
-    border-radius: 15px;
-  }
+.experience-block,
+.skills-block {
+  width: min(1120px, 100%);
+  margin: 1.2rem auto 0;
+  padding: 1.6rem;
+}
 
-  .tech-stack {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 10px;
-    margin: 30px auto;
-  }
+.experience-list {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1rem;
+}
 
-  .tech-item {
-    width:auto;
-    text-align: center;
-    background-color: #989edd;
-    color: inherit;
-    padding: 0 8px;
-    border-radius: 15px;
-    font-size: 0.8em;
-  }
+.experience-card {
+  padding: 1.25rem;
 
-  .learning {
-    background-color: #2ecc71;
+  p {
+    margin: 0;
+    line-height: 1.75;
   }
 }
 
-@import "/src/assets/scss/responsive.scss";
+.skills-groups {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1rem;
+}
+
+.skill-group {
+  padding: 1.25rem;
+
+  h3 {
+    margin: 0 0 1rem;
+    font-size: 1.05rem;
+  }
+}
+
+.skill-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.7rem;
+}
+
+@media screen and (max-width: 991px) {
+  .about-grid,
+  .experience-list,
+  .skills-groups {
+    grid-template-columns: 1fr;
+  }
+}
 </style>

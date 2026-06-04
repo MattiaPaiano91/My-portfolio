@@ -1,44 +1,38 @@
 <script setup>
-import { onMounted, ref } from "vue";
+import { onMounted } from "vue";
 import { data } from "../store";
-onMounted(()=> {
-  window.scroll({
-        top: 0,
-        behavior: "instant",
-      });
-})
 
+onMounted(() => {
+  window.scrollTo({ top: 0, behavior: "auto" });
+});
 
- function downloadCV() {
-     
-      const cvUrl = '/cv/Mattia Paiano CV.pdf';
-      
-     
-      const link = document.createElement('a');
-      link.href = cvUrl;
-      link.download = 'Mattia-paiano-cv.pdf'; 
-
-      document.body.appendChild(link);
-      link.click();
-      document.body.removeChild(link);
-    }
-
+function downloadCV() {
+  const link = document.createElement("a");
+  link.href = "/cv/Mattia Paiano CV.pdf";
+  link.download = "Mattia-Paiano-CV.pdf";
+  document.body.appendChild(link);
+  link.click();
+  document.body.removeChild(link);
+}
 </script>
 
 <template>
   <div class="contact-container text-center">
-    <h1>Contattami</h1>
-    <div class="contact-content" :class="data.themeFlag ? '' : 'bg-dark'">
+    <p class="eyebrow">Contatti</p>
+    <h1>Parliamone.</h1>
+
+    <div class="contact-content" :class="data.themeFlag ? '' : 'bg-dark text-white'">
       <div class="contact-info">
-        <p id="title">Non esitare a contattarmi per qualsiasi domanda o collaborazione.</p>
+        <p id="title">
+          Se hai un'idea, una collaborazione o semplicemente vuoi fare due chiacchiere sul web,
+          trovi tutto qui.
+        </p>
         <ul class="text-center">
           <li>
             <strong>Email:</strong>
-            <a href="mailto:mattia.paiano@example.com"
-              >paianomattia.dev@gmail.com</a
-            >
+            <a href="mailto:paianomattia.dev@gmail.com">paianomattia.dev@gmail.com</a>
           </li>
-          <li><strong>Località:</strong> Lecce, Italia</li>
+          <li><strong>Localita:</strong> Lecce, Italia</li>
           <li>
             <strong>LinkedIn:</strong>
             <a
@@ -62,18 +56,18 @@ onMounted(()=> {
         </ul>
       </div>
     </div>
-    <div class="div p-3" >
-      <button @click="downloadCV()" class="download-cv" :class="data.themeFlag ? '' : 'bg-dark'">
+
+    <div class="div p-3">
+      <button @click="downloadCV()" class="download-cv" :class="data.themeFlag ? '' : 'bg-dark text-white'">
         Scarica CV <i class="fa-regular fa-circle-down"></i>
       </button>
-     
     </div>
 
     <div class="img-box">
       <img
         :class="data.themeFlag ? '' : 'inverted'"
-        src="/public/img/LogoConNomeBianco.svg"
-        alt=""
+        src="/img/LogoConNomeBianco.svg"
+        alt="Logo Mattia Paiano"
       />
     </div>
   </div>
@@ -81,46 +75,42 @@ onMounted(()=> {
 
 <style lang="scss" scoped>
 @import "../assets/scss/partials/variables.scss";
+
 .inverted {
   filter: invert(1);
 }
+
 .contact-container {
-  .img-box {
-    width: 60%;
-    margin: 0 auto;
-    img {
-      width: 100%;
-      object-fit: contain;
-    }
-  }
   min-height: $mainHeight;
   max-width: 800px;
   margin: 0 auto;
-  padding: 2rem;
+  padding: 2rem 1rem 4rem;
   font-family: "Poppins", sans-serif;
 
-  h1 {
-    font-size: 2.5rem;
-    margin-bottom: 2rem;
+  .eyebrow {
+    text-transform: uppercase;
+    letter-spacing: 0.18em;
+    font-size: 0.78rem;
     color: $violet;
-    font-weight: 600;
+    margin-bottom: 0.8rem;
+  }
+
+  h1 {
+    font-size: clamp(2.4rem, 6vw, 4rem);
+    margin-bottom: 1.4rem;
+    font-weight: 700;
   }
 
   .contact-content {
-    background-color: #f8f8f8;
-    border-radius: 8px;
+    background:
+      linear-gradient(180deg, rgba(152, 158, 221, 0.14), rgba(152, 158, 221, 0.04)),
+      #f8f8f8;
+    border-radius: 24px;
     padding: 2rem;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 18px 40px rgba(15, 23, 42, 0.08);
   }
 
   .contact-info {
-    h2 {
-      font-size: 1.5rem;
-      margin-bottom: 1rem;
-      color: $violet;
-      font-weight: 500;
-    }
-
     p {
       margin-bottom: 1.5rem;
       color: inherit;
@@ -134,9 +124,11 @@ onMounted(()=> {
         margin-bottom: 1rem;
         display: flex;
         align-items: flex-start;
+        justify-content: center;
+        flex-wrap: wrap;
 
         strong {
-          min-width: 80px;
+          min-width: 90px;
           display: inline-block;
           margin-right: 0.5rem;
         }
@@ -144,24 +136,35 @@ onMounted(()=> {
         a {
           color: $violet;
           text-decoration: none;
-          transition: color 0.3s ease;
 
           &:hover {
-            color: darken($violet, 15%);
             text-decoration: underline;
           }
         }
       }
     }
   }
+
+  .img-box {
+    width: min(460px, 100%);
+    margin: 0 auto;
+
+    img {
+      width: 100%;
+      object-fit: contain;
+    }
+  }
 }
 
 .download-cv {
-  
-  transition: all 0.1s ease-in-out;
-  &:hover{
+  padding: 0.95rem 1.35rem;
+  border-radius: 999px;
+  border: 1px solid rgba(152, 158, 221, 0.3);
+  transition: all 0.2s ease-in-out;
 
-    box-shadow: 9px 7px 0px -3px rgba(0,0,0,1);
+  &:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 14px 24px rgba(15, 23, 42, 0.12);
   }
 }
 </style>
