@@ -2,9 +2,9 @@
 import { onMounted } from "vue";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/all";
-import SectionTitle from "./SectionTitle.vue";
-import SkillBadge from "./SkillBadge.vue";
-import { skillGroups } from "../data/skills.js";
+import SectionTitle from "@/components/SectionTitle.vue";
+import SkillBadge from "@/components/SkillBadge.vue";
+import { skillGroups } from "@/data/skills.js";
 
 const introCards = [
   {

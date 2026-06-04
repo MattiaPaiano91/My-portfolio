@@ -1,6 +1,8 @@
 <script setup>
 import { computed } from "vue";
-import { data } from "../store.js";
+import { useUiStore } from "@/stores/ui.js";
+
+const uiStore = useUiStore();
 
 const navLinks = [
   { name: "WelcomeApp", label: "Home" },
@@ -9,11 +11,11 @@ const navLinks = [
 ];
 
 const themeClass = computed(() =>
-  data.themeFlag ? "header-light" : "header-dark"
+  uiStore.themeFlag ? "header-light" : "header-dark"
 );
 
 function toggleTheme() {
-  data.themeFlag = !data.themeFlag;
+  uiStore.toggleTheme();
 }
 </script>
 
@@ -23,7 +25,7 @@ function toggleTheme() {
       <div class="header-shell">
         <router-link :to="{ name: 'WelcomeApp' }" class="brand-mark">
           <img
-            :class="{ inverted: !data.themeFlag }"
+            :class="{ inverted: !uiStore.themeFlag }"
             src="/img/LogoBianco.svg"
             alt="Logo Mattia Paiano"
           />
@@ -46,9 +48,9 @@ function toggleTheme() {
             type="button"
             class="theme-toggle"
             @click="toggleTheme"
-            :aria-label="data.themeFlag ? 'Attiva tema scuro' : 'Attiva tema chiaro'"
+            :aria-label="uiStore.themeFlag ? 'Attiva tema scuro' : 'Attiva tema chiaro'"
           >
-            <i :class="data.themeFlag ? 'fa-regular fa-moon' : 'fa-regular fa-sun'"></i>
+            <i :class="uiStore.themeFlag ? 'fa-regular fa-moon' : 'fa-regular fa-sun'"></i>
           </button>
 
           <button
@@ -99,7 +101,7 @@ function toggleTheme() {
 </template>
 
 <style lang="scss" scoped>
-@use "../assets/scss/main.scss" as *;
+@use "@/assets/scss/main.scss" as main;
 
 .site-header {
   position: fixed;

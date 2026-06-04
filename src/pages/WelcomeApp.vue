@@ -2,13 +2,14 @@
 import { computed, onMounted } from "vue";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/all";
-import AboutMe from "../components/AboutMe.vue";
-import SectionTitle from "../components/SectionTitle.vue";
-import ProjectCard from "../components/ProjectCard.vue";
-import { data } from "../store.js";
-import { useProjectStore } from "../stores/project";
+import AboutMe from "@/components/AboutMe.vue";
+import SectionTitle from "@/components/SectionTitle.vue";
+import ProjectCard from "@/components/ProjectCard.vue";
+import { useProjectStore } from "@/stores/project.js";
+import { useUiStore } from "@/stores/ui.js";
 
 const projectStore = useProjectStore();
+const uiStore = useUiStore();
 const featuredProjects = computed(() => projectStore.getProjects.filter((project) => project.featured).slice(0, 3));
 
 function openProject(projectId) {
@@ -39,7 +40,7 @@ onMounted(() => {
 </script>
 
 <template>
-  <div class="landing-page" :class="data.themeFlag ? 'landing-light' : 'landing-dark'">
+  <div class="landing-page" :class="uiStore.themeFlag ? 'landing-light' : 'landing-dark'">
     <section class="hero-section container-fluid">
       <div class="row align-items-center g-4 g-lg-5">
         <div class="col-12 col-lg-6 d-flex justify-content-center">

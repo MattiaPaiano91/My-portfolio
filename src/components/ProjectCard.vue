@@ -1,5 +1,5 @@
 <script setup>
-import SkillBadge from "./SkillBadge.vue";
+import SkillBadge from "@/components/SkillBadge.vue";
 
 const emit = defineEmits(["open"]);
 

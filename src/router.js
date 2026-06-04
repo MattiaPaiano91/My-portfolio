@@ -1,9 +1,9 @@
 import { createRouter, createWebHistory } from "vue-router";
-import ShowProject from "./pages/ShowProject.vue";
-import ProjectIndex from "./pages/ProjectIndex.vue";
-import NotFound from "./pages/NotFound.vue";
-import WelcomeApp from "./pages/WelcomeApp.vue";
-import ContactMe from "./pages/ContactMe.vue";
+import ShowProject from "@/pages/ShowProject.vue";
+import ProjectIndex from "@/pages/ProjectIndex.vue";
+import NotFound from "@/pages/NotFound.vue";
+import WelcomeApp from "@/pages/WelcomeApp.vue";
+import ContactMe from "@/pages/ContactMe.vue";
 
 const router = createRouter({
   history: createWebHistory(),

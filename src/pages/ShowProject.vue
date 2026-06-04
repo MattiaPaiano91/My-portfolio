@@ -1,7 +1,7 @@
 <script setup>
 import { computed, onBeforeMount } from "vue";
-import { useProjectStore } from "../stores/project";
-import SkillBadge from "../components/SkillBadge.vue";
+import { useProjectStore } from "@/stores/project.js";
+import SkillBadge from "@/components/SkillBadge.vue";
 
 const projectStore = useProjectStore();
 const project = computed(() => projectStore.getActiveProject || projectStore.getProjects[0]);
@@ -55,10 +55,10 @@ onBeforeMount(() => {
 </template>
 
 <style lang="scss" scoped>
-@import "../assets/scss/partials/variables.scss";
+@use "@/assets/scss/partials/variables.scss" as vars;
 
 .show-page {
-  min-height: $mainHeight;
+  min-height: vars.$mainHeight;
 }
 
 .show-hero {
@@ -89,7 +89,7 @@ onBeforeMount(() => {
   text-transform: uppercase;
   letter-spacing: 0.18em;
   font-size: 0.78rem;
-  color: $violet;
+  color: vars.$violet;
 }
 
 h1 {
@@ -116,7 +116,7 @@ h1 {
   text-decoration: none;
   padding: 0.88rem 1.2rem;
   border-radius: 999px;
-  background: $violet;
+  background: vars.$violet;
 }
 
 .show-media {

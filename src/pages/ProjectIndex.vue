@@ -1,8 +1,8 @@
 <script setup>
 import { computed, onMounted } from "vue";
-import { useProjectStore } from "../stores/project";
-import SectionTitle from "../components/SectionTitle.vue";
-import ProjectCard from "../components/ProjectCard.vue";
+import { useProjectStore } from "@/stores/project.js";
+import SectionTitle from "@/components/SectionTitle.vue";
+import ProjectCard from "@/components/ProjectCard.vue";
 
 const projectStore = useProjectStore();
 const orderedProjects = computed(() => {
@@ -41,10 +41,10 @@ onMounted(() => {
 </template>
 
 <style lang="scss" scoped>
-@import "../assets/scss/partials/variables.scss";
+@use "@/assets/scss/partials/variables.scss" as vars;
 
 .project-index {
-  min-height: $mainHeight;
+  min-height: vars.$mainHeight;
   padding-bottom: 4rem;
 }
 

@@ -9,4 +9,9 @@ const cacheDir = process.env.LOCALAPPDATA
 export default defineConfig({
   cacheDir,
   plugins: [vue()],
+  resolve: {
+    alias: {
+      "@": path.resolve(process.cwd(), "src"),
+    },
+  },
 });

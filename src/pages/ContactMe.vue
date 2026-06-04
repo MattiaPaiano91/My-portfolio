@@ -1,6 +1,8 @@
 <script setup>
 import { onMounted } from "vue";
-import { data } from "../store";
+import { useUiStore } from "@/stores/ui.js";
+
+const uiStore = useUiStore();
 
 onMounted(() => {
   window.scrollTo({ top: 0, behavior: "auto" });
@@ -21,7 +23,7 @@ function downloadCV() {
     <p class="eyebrow">Contatti</p>
     <h1>Parliamone.</h1>
 
-    <div class="contact-content" :class="data.themeFlag ? '' : 'bg-dark text-white'">
+    <div class="contact-content" :class="uiStore.themeFlag ? '' : 'bg-dark text-white'">
       <div class="contact-info">
         <p id="title">
           Se hai un'idea, una collaborazione o semplicemente vuoi fare due chiacchiere sul web,
@@ -58,14 +60,14 @@ function downloadCV() {
     </div>
 
     <div class="div p-3">
-      <button @click="downloadCV()" class="download-cv" :class="data.themeFlag ? '' : 'bg-dark text-white'">
+      <button @click="downloadCV()" class="download-cv" :class="uiStore.themeFlag ? '' : 'bg-dark text-white'">
         Scarica CV <i class="fa-regular fa-circle-down"></i>
       </button>
     </div>
 
     <div class="img-box">
       <img
-        :class="data.themeFlag ? '' : 'inverted'"
+        :class="uiStore.themeFlag ? '' : 'inverted'"
         src="/img/LogoConNomeBianco.svg"
         alt="Logo Mattia Paiano"
       />
@@ -74,14 +76,14 @@ function downloadCV() {
 </template>
 
 <style lang="scss" scoped>
-@import "../assets/scss/partials/variables.scss";
+@use "@/assets/scss/partials/variables.scss" as vars;
 
 .inverted {
   filter: invert(1);
 }
 
 .contact-container {
-  min-height: $mainHeight;
+  min-height: vars.$mainHeight;
   max-width: 800px;
   margin: 0 auto;
   padding: 2rem 1rem 4rem;
@@ -91,7 +93,7 @@ function downloadCV() {
     text-transform: uppercase;
     letter-spacing: 0.18em;
     font-size: 0.78rem;
-    color: $violet;
+    color: vars.$violet;
     margin-bottom: 0.8rem;
   }
 
@@ -134,7 +136,7 @@ function downloadCV() {
         }
 
         a {
-          color: $violet;
+          color: vars.$violet;
           text-decoration: none;
 
           &:hover {

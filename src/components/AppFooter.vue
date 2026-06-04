@@ -1,8 +1,10 @@
 <script setup>
-import { data } from "../store.js";
+import { useUiStore } from "@/stores/ui.js";
 import { Swiper, SwiperSlide } from "swiper/vue";
 import { Autoplay } from "swiper/modules";
 import "swiper/css";
+
+const uiStore = useUiStore();
 
 const slider = [
   "/SVG/bootstrap.svg",
@@ -22,7 +24,7 @@ const modules = [Autoplay];
 </script>
 
 <template>
-  <footer :class="data.themeFlag ? 'footer-light' : 'footer-dark'" class="site-footer">
+  <footer :class="uiStore.themeFlag ? 'footer-light' : 'footer-dark'" class="site-footer">
     <div class="footer-glow"></div>
     <div class="container-fluid footer-shell">
       <div class="footer-intro text-center">
@@ -44,7 +46,7 @@ const modules = [Autoplay];
         <swiper-slide v-for="elem in slider" :key="elem" class="slider">
           <div class="icon-card">
             <img
-              :style="!data.themeFlag ? 'filter: invert(1);' : ''"
+              :style="!uiStore.themeFlag ? 'filter: invert(1);' : ''"
               :src="elem"
               alt="Tecnologia usata nel portfolio"
             />
@@ -64,7 +66,7 @@ const modules = [Autoplay];
 </template>
 
 <style lang="scss" scoped>
-@use "../assets/scss/main.scss" as *;
+@use "@/assets/scss/main.scss" as main;
 
 .site-footer {
   position: relative;
