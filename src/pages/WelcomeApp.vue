@@ -48,17 +48,17 @@ onMounted(() => {
             <div class="visual-frame">
               <img src="/img/foto.webp" alt="Ritratto di Mattia Paiano" />
             </div>
-            <div class="visual-badge hero-animate">Frontend, backend, GIS e roba fatta per lavorare meglio</div>
+
           </div>
         </div>
 
         <div class="col-12 col-lg-6">
           <div class="hero-copy">
-            <p class="hero-kicker hero-animate">Mattia Paiano | Web Developer / Full-Stack</p>
+            <p class="hero-kicker hero-animate">Mattia Paiano | Full-Stack Web Developer</p>
             <h1 class="hero-animate">Creo applicazioni web solide, chiare e fatte per durare.</h1>
             <p class="hero-text hero-animate">
               Mi occupo di frontend, backend e strumenti interni: dashboard, mappe interattive,
-              API Python e applicazioni dove i dati devono essere organizzati bene e funzionare senza attriti.
+              API e applicazioni dove i dati devono essere organizzati bene e funzionare senza attriti.
             </p>
 
             <div class="hero-actions hero-animate">

@@ -9,9 +9,9 @@ const uiStore = useUiStore();
 
 <template>
   <AppHeader />
-  <div :class="uiStore.themeFlag ? 'mode-light' : 'mode-dark'" class="main app-shell">
+  <main :class="uiStore.themeFlag ? 'mode-light' : 'mode-dark'" class="main app-shell">
     <AppMain />
-  </div>
+  </main>
   <AppFooter :class="uiStore.themeFlag ? 'mode-light' : 'mode-dark'" />
 </template>
 
