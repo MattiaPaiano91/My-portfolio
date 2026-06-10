@@ -32,8 +32,8 @@ onMounted(() => {
 </script>
 
 <template>
-  <section class="about-wrapper">
-    <div class="about-grid">
+  <section class="w-full px-4 pt-4">
+    <div class="about-list">
       <article
         v-for="card in introCards"
         :key="card.title"
@@ -91,16 +91,11 @@ onMounted(() => {
 </template>
 
 <style scoped lang="scss">
-.about-wrapper {
-  width: 100%;
-  padding: 1rem 1rem 0;
-}
-
-.about-grid {
+.about-list {
   width: min(1120px, 100%);
   margin: 0 auto;
-  display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
+  display: flex;
+  flex-wrap: wrap;
   gap: 1.2rem;
 }
 
@@ -118,6 +113,8 @@ onMounted(() => {
 }
 
 .bio-card {
+  flex: 1 1 calc((100% - 2.4rem) / 3);
+  min-width: 280px;
   padding: 1.6rem;
 
   p:last-child {
@@ -142,12 +139,14 @@ onMounted(() => {
 }
 
 .experience-list {
-  display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
+  display: flex;
+  flex-wrap: wrap;
   gap: 1rem;
 }
 
 .experience-card {
+  flex: 1 1 calc((100% - 1rem) / 2);
+  min-width: 280px;
   padding: 1.25rem;
 
   p {
@@ -157,12 +156,14 @@ onMounted(() => {
 }
 
 .skills-groups {
-  display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
+  display: flex;
+  flex-wrap: wrap;
   gap: 1rem;
 }
 
 .skill-group {
+  flex: 1 1 calc((100% - 1rem) / 2);
+  min-width: 280px;
   padding: 1.25rem;
 
   h3 {
@@ -178,10 +179,10 @@ onMounted(() => {
 }
 
 @media screen and (max-width: 991px) {
-  .about-grid,
-  .experience-list,
-  .skills-groups {
-    grid-template-columns: 1fr;
+  .bio-card,
+  .experience-card,
+  .skill-group {
+    flex-basis: 100%;
   }
 }
 </style>

@@ -12,8 +12,8 @@ onBeforeMount(() => {
 </script>
 
 <template>
-  <div class="container show-page pb-5">
-    <div class="show-hero my-4 my-lg-5">
+  <div class="show-page">
+    <div class="show-hero">
       <div class="show-copy">
         <p class="eyebrow">{{ project.featured ? "Progetto principale" : "Progetto minore" }}</p>
         <h1>{{ project.title }}</h1>
@@ -58,14 +58,25 @@ onBeforeMount(() => {
 @use "@/assets/scss/partials/variables.scss" as vars;
 
 .show-page {
+  width: min(1140px, 100% - 2rem);
+  margin: 0 auto;
   min-height: vars.$mainHeight;
+  padding-bottom: 3rem;
 }
 
 .show-hero {
-  display: grid;
-  grid-template-columns: 1.05fr 0.95fr;
+  display: flex;
   gap: 1.5rem;
   align-items: stretch;
+  margin: 1.5rem 0 3rem;
+}
+
+.show-copy {
+  flex: 1.05 1 0;
+}
+
+.show-media {
+  flex: 0.95 1 0;
 }
 
 .show-copy,
@@ -146,7 +157,7 @@ h1 {
 
 @media screen and (max-width: 991px) {
   .show-hero {
-    grid-template-columns: 1fr;
+    flex-direction: column;
   }
 }
 </style>

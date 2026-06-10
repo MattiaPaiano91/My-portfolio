@@ -1,5 +1,4 @@
 export const stackIcons = [
-  "/SVG/bootstrap.svg",
   "/SVG/css3-alt.svg",
   "/SVG/database-solid.svg",
   "/SVG/git-alt.svg",
@@ -9,6 +8,7 @@ export const stackIcons = [
   "/SVG/mysql-svgrepo-com.svg",
   "/SVG/node-js.svg",
   "/SVG/php.svg",
+  "/SVG/sass.svg",
   "/SVG/vuejs.svg",
 ];
 

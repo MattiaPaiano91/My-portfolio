@@ -20,44 +20,20 @@ defineProps({
 </script>
 
 <template>
-  <div class="section-title" :class="`align-${align}`">
-    <p v-if="eyebrow" class="eyebrow">{{ eyebrow }}</p>
-    <h2>{{ title }}</h2>
-    <p v-if="description" class="description">{{ description }}</p>
+  <div class="mb-[1.6rem]" :class="{ 'text-center': align === 'center' }">
+    <p
+      v-if="eyebrow"
+      class="mb-3 text-[0.78rem] uppercase tracking-[0.18em] text-[#989edd]"
+    >
+      {{ eyebrow }}
+    </p>
+    <h2 class="m-0 text-[clamp(1.8rem,3vw,2.8rem)]">{{ title }}</h2>
+    <p
+      v-if="description"
+      class="mt-[0.85rem] max-w-[62ch] leading-[1.75] opacity-80"
+      :class="{ 'mx-auto': align === 'center' }"
+    >
+      {{ description }}
+    </p>
   </div>
 </template>
-
-<style lang="scss" scoped>
-.section-title {
-  margin-bottom: 1.6rem;
-}
-
-.align-center {
-  text-align: center;
-}
-
-.eyebrow {
-  margin-bottom: 0.75rem;
-  text-transform: uppercase;
-  letter-spacing: 0.18em;
-  font-size: 0.78rem;
-  color: #989edd;
-}
-
-h2 {
-  margin: 0;
-  font-size: clamp(1.8rem, 3vw, 2.8rem);
-}
-
-.description {
-  margin: 0.85rem 0 0;
-  max-width: 62ch;
-  line-height: 1.75;
-  opacity: 0.8;
-}
-
-.align-center .description {
-  margin-left: auto;
-  margin-right: auto;
-}
-</style>

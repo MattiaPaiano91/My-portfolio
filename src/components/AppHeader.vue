@@ -1,9 +1,10 @@
-<script setup>
-import { computed } from "vue";
+<script setup lang="ts">
+import { computed, ref } from "vue";
 import { useUiStore } from "@/stores/ui.js";
 import { navLinks } from "@/data/navigation.js";
 
 const uiStore = useUiStore();
+const isMobileMenuOpen = ref(false);
 
 const themeClass = computed(() =>
   uiStore.themeFlag ? "header-light" : "header-dark"
@@ -12,11 +13,19 @@ const themeClass = computed(() =>
 function toggleTheme() {
   uiStore.toggleTheme();
 }
+
+function openMobileMenu() {
+  isMobileMenuOpen.value = true;
+}
+
+function closeMobileMenu() {
+  isMobileMenuOpen.value = false;
+}
 </script>
 
 <template>
   <header :class="themeClass" class="site-header">
-    <div class="container-fluid px-3 px-lg-4">
+    <div class="header-container">
       <div class="header-shell">
         <router-link :to="{ name: 'WelcomeApp' }" class="brand-mark">
           <img
@@ -27,7 +36,7 @@ function toggleTheme() {
           <span>Mattia Paiano</span>
         </router-link>
 
-        <nav class="desktop-nav d-none d-md-flex" aria-label="Navigazione principale">
+        <nav class="desktop-nav" aria-label="Navigazione principale">
           <router-link
             v-for="link in navLinks"
             :key="link.name"
@@ -49,11 +58,11 @@ function toggleTheme() {
           </button>
 
           <button
-            class="mobile-menu d-md-none"
+            class="mobile-menu"
             type="button"
-            data-bs-toggle="offcanvas"
-            data-bs-target="#mobileMenu"
+            @click="openMobileMenu"
             aria-controls="mobileMenu"
+            :aria-expanded="isMobileMenuOpen"
             aria-label="Apri menu"
           >
             <i class="fa-solid fa-bars"></i>
@@ -62,48 +71,61 @@ function toggleTheme() {
       </div>
     </div>
 
+    <button
+      v-if="isMobileMenuOpen"
+      type="button"
+      class="mobile-menu-backdrop"
+      aria-label="Chiudi menu"
+      @click="closeMobileMenu"
+    ></button>
+
     <div
       id="mobileMenu"
-      class="offcanvas offcanvas-end"
+      class="mobile-panel"
       :class="themeClass"
       tabindex="-1"
       aria-labelledby="mobileMenuLabel"
+      :aria-hidden="!isMobileMenuOpen"
     >
-      <div class="offcanvas-header">
+      <div class="mobile-panel-header">
         <h2 id="mobileMenuLabel">Navigazione</h2>
         <button
           type="button"
-          class="btn-close"
-          data-bs-dismiss="offcanvas"
+          class="mobile-panel-close"
           aria-label="Chiudi"
-        ></button>
+          @click="closeMobileMenu"
+        >
+          <i class="fa-solid fa-xmark"></i>
+        </button>
       </div>
-      <div class="offcanvas-body">
-        <nav class="mobile-nav">
-          <router-link
-            v-for="link in navLinks"
-            :key="link.name"
-            class="mobile-link"
-            :to="{ name: link.name }"
-            data-bs-dismiss="offcanvas"
-          >
-            {{ link.label }}
-          </router-link>
-        </nav>
-      </div>
+
+      <nav class="mobile-nav">
+        <router-link
+          v-for="link in navLinks"
+          :key="link.name"
+          class="mobile-link"
+          :to="{ name: link.name }"
+          @click="closeMobileMenu"
+        >
+          {{ link.label }}
+        </router-link>
+      </nav>
     </div>
   </header>
 </template>
 
 <style lang="scss" scoped>
-@use "@/assets/scss/main.scss" as main;
-
 .site-header {
   position: fixed;
   inset: 0 0 auto;
   z-index: 20;
   border-bottom: 1px solid rgba(152, 158, 221, 0.16);
   backdrop-filter: blur(18px);
+}
+
+.header-container {
+  width: 100%;
+  padding: 0 1rem;
 }
 
 .header-light {
@@ -117,6 +139,7 @@ function toggleTheme() {
 }
 
 .header-shell {
+  position: relative;
   min-height: 96px;
   display: flex;
   align-items: center;
@@ -141,6 +164,10 @@ function toggleTheme() {
 }
 
 .desktop-nav {
+  position: absolute;
+  left: 50%;
+  display: flex;
+  transform: translateX(-50%);
   align-items: center;
   gap: 0.75rem;
 }
@@ -179,8 +206,9 @@ function toggleTheme() {
   border: 1px solid rgba(152, 158, 221, 0.28);
   background: transparent;
   color: inherit;
-  display: grid;
-  place-items: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   transition: transform 0.2s ease, background-color 0.2s ease;
 
   &:hover {
@@ -190,8 +218,58 @@ function toggleTheme() {
 }
 
 .mobile-nav {
-  display: grid;
+  display: flex;
+  flex-direction: column;
   gap: 0.85rem;
+}
+
+.mobile-panel {
+  position: fixed;
+  top: 0;
+  right: 0;
+  z-index: 30;
+  width: min(360px, 86vw);
+  min-height: 100vh;
+  padding: 1.25rem;
+  border-left: 1px solid rgba(152, 158, 221, 0.18);
+  box-shadow: -24px 0 60px rgba(15, 23, 42, 0.18);
+  transform: translateX(100%);
+  transition: transform 0.25s ease;
+}
+
+.mobile-panel[aria-hidden="false"] {
+  transform: translateX(0);
+}
+
+.mobile-menu-backdrop {
+  position: fixed;
+  inset: 0;
+  z-index: 25;
+  background: rgba(15, 23, 42, 0.35);
+}
+
+.mobile-panel-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+
+  h2 {
+    margin: 0;
+    font-size: 1.35rem;
+  }
+}
+
+.mobile-panel-close {
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  border: 1px solid rgba(152, 158, 221, 0.28);
+  color: inherit;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .mobile-link {
@@ -215,6 +293,24 @@ function toggleTheme() {
 
   .brand-mark span {
     display: none;
+  }
+
+  .desktop-nav {
+    display: none;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .mobile-menu,
+  .mobile-panel,
+  .mobile-menu-backdrop {
+    display: none;
+  }
+}
+
+@media screen and (min-width: 992px) {
+  .header-container {
+    padding: 0 1.5rem;
   }
 }
 </style>

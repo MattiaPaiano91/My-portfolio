@@ -12,12 +12,12 @@ const modules = [Autoplay];
 </script>
 
 <template>
-  <footer :class="uiStore.themeFlag ? 'footer-light' : 'footer-dark'" class="site-footer">
+  <footer :class="uiStore.themeFlag ? 'footer-light' : 'footer-dark'" class="relative overflow-hidden py-[5rem] pb-12">
     <div class="footer-glow"></div>
-    <div class="container-fluid footer-shell">
-      <div class="footer-intro text-center">
+    <div class="relative z-[1] mx-auto w-[min(1180px,calc(100%-2rem))]">
+      <div class="mx-auto mb-8 max-w-[720px] text-center">
         <p class="eyebrow">Stack quotidiano</p>
-        <h2>Frontend, backend e motion con un taglio molto pratico.</h2>
+        <h2 class="text-[clamp(1.6rem,3vw,2.4rem)]">Frontend, backend e motion con un taglio molto pratico.</h2>
       </div>
 
       <swiper
@@ -28,8 +28,9 @@ const modules = [Autoplay];
         class="stack-swiper"
       >
         <swiper-slide v-for="elem in stackIcons" :key="elem" class="slider">
-          <div class="icon-card">
+          <div class="flex h-24 items-center justify-center rounded-3xl border border-[rgba(152,158,221,0.18)] bg-white/5">
             <img
+              class="h-[52px] w-[52px] object-contain"
               :style="!uiStore.themeFlag ? 'filter: invert(1);' : ''"
               :src="elem"
               alt="Tecnologia usata nel portfolio"
@@ -38,7 +39,7 @@ const modules = [Autoplay];
         </swiper-slide>
       </swiper>
 
-      <nav class="footer-nav" aria-label="Link footer">
+      <nav class="mb-4 flex flex-wrap justify-center gap-4" aria-label="Link footer">
         <router-link
           v-for="link in navLinks"
           :key="link.name"
@@ -49,20 +50,12 @@ const modules = [Autoplay];
         </router-link>
       </nav>
 
-      <p class="signature">Costruito con Vue, Sass e parecchia curiosita.</p>
+      <p class="m-0 text-center opacity-80">Costruito con Vue, Sass e parecchia curiosita.</p>
     </div>
   </footer>
 </template>
 
 <style lang="scss" scoped>
-@use "@/assets/scss/main.scss" as main;
-
-.site-footer {
-  position: relative;
-  overflow: hidden;
-  padding: 5rem 0 3rem;
-}
-
 .footer-light {
   background:
     radial-gradient(circle at top, rgba(152, 158, 221, 0.2), transparent 35%),
@@ -77,11 +70,6 @@ const modules = [Autoplay];
   color: #f8fafc;
 }
 
-.footer-shell {
-  position: relative;
-  z-index: 1;
-}
-
 .footer-glow {
   position: absolute;
   inset: auto -15% -10% auto;
@@ -90,15 +78,6 @@ const modules = [Autoplay];
   border-radius: 50%;
   background: rgba(152, 158, 221, 0.18);
   filter: blur(30px);
-}
-
-.footer-intro {
-  max-width: 720px;
-  margin: 0 auto 2rem;
-
-  h2 {
-    font-size: clamp(1.6rem, 3vw, 2.4rem);
-  }
 }
 
 .eyebrow {
@@ -111,30 +90,6 @@ const modules = [Autoplay];
 
 .stack-swiper {
   padding: 1rem 0 2.5rem;
-}
-
-.icon-card {
-  height: 96px;
-  border-radius: 24px;
-  border: 1px solid rgba(152, 158, 221, 0.18);
-  background: rgba(255, 255, 255, 0.05);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-
-  img {
-    width: 52px;
-    height: 52px;
-    object-fit: contain;
-  }
-}
-
-.footer-nav {
-  display: flex;
-  justify-content: center;
-  gap: 1rem;
-  flex-wrap: wrap;
-  margin-bottom: 1rem;
 }
 
 .footer-link {
@@ -150,9 +105,4 @@ const modules = [Autoplay];
   }
 }
 
-.signature {
-  text-align: center;
-  margin: 0;
-  opacity: 0.8;
-}
 </style>

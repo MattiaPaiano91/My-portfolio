@@ -19,17 +19,17 @@ function downloadCV() {
 </script>
 
 <template>
-  <div class="contact-container text-center">
+  <div class="contact-container">
     <p class="eyebrow">Contatti</p>
     <h1>Parliamone.</h1>
 
-    <div class="contact-content" :class="uiStore.themeFlag ? '' : 'bg-dark text-white'">
+    <div class="contact-content" :class="{ 'contact-content-dark': !uiStore.themeFlag }">
       <div class="contact-info">
         <p id="title">
           Se hai un'idea, una collaborazione o semplicemente vuoi fare due chiacchiere sul web,
           trovi tutto qui.
         </p>
-        <ul class="text-center">
+        <ul>
           <li>
             <strong>Email:</strong>
             <a href="mailto:paianomattia.dev@gmail.com">paianomattia.dev@gmail.com</a>
@@ -59,8 +59,8 @@ function downloadCV() {
       </div>
     </div>
 
-    <div class="div p-3">
-      <button @click="downloadCV()" class="download-cv" :class="uiStore.themeFlag ? '' : 'bg-dark text-white'">
+    <div class="p-4">
+      <button @click="downloadCV()" class="download-cv" :class="{ 'download-cv-dark': !uiStore.themeFlag }">
         Scarica CV <i class="fa-solid fa-circle-down"></i>
       </button>
     </div>
@@ -88,6 +88,7 @@ function downloadCV() {
   margin: 0 auto;
   padding: 2rem 1rem 4rem;
   font-family: "Poppins", sans-serif;
+  text-align: center;
 
   .eyebrow {
     text-transform: uppercase;
@@ -110,6 +111,13 @@ function downloadCV() {
     border-radius: 24px;
     padding: 2rem;
     box-shadow: 0 18px 40px rgba(15, 23, 42, 0.08);
+  }
+
+  .contact-content-dark {
+    background:
+      linear-gradient(180deg, rgba(152, 158, 221, 0.12), rgba(152, 158, 221, 0.04)),
+      #101828;
+    color: #ffffff;
   }
 
   .contact-info {
@@ -168,5 +176,10 @@ function downloadCV() {
     transform: translateY(-2px);
     box-shadow: 0 14px 24px rgba(15, 23, 42, 0.12);
   }
+}
+
+.download-cv-dark {
+  background: #101828;
+  color: #ffffff;
 }
 </style>

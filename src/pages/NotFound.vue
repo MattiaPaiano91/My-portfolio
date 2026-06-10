@@ -7,7 +7,7 @@ onMounted(() => {
 </script>
 
 <template>
-  <section class="not-found-page container">
+  <section class="not-found-page">
     <div class="not-found-content">
       <p class="eyebrow">Errore 404</p>
       <h1>Pagina non trovata.</h1>
@@ -38,15 +38,17 @@ onMounted(() => {
 @use "@/assets/scss/partials/variables.scss" as vars;
 
 .not-found-page {
+  width: min(1140px, 100% - 2rem);
+  margin: 0 auto;
   min-height: vars.$mainHeight;
-  display: grid;
-  grid-template-columns: minmax(0, 1fr) minmax(260px, 420px);
+  display: flex;
   align-items: center;
   gap: 3rem;
   padding: 2rem 1rem 5rem;
 }
 
 .not-found-content {
+  flex: 1 1 0;
   max-width: 620px;
 }
 
@@ -105,6 +107,7 @@ h1 {
 }
 
 .not-found-visual {
+  flex: 0 1 420px;
   display: flex;
   justify-content: center;
   gap: 0.35rem;
@@ -130,7 +133,7 @@ h1 {
 
 @media screen and (max-width: 991px) {
   .not-found-page {
-    grid-template-columns: 1fr;
+    flex-direction: column;
     text-align: center;
     gap: 2rem;
   }
@@ -152,7 +155,7 @@ h1 {
   }
 
   .actions {
-    display: grid;
+    flex-direction: column;
   }
 }
 </style>

@@ -1,6 +1,9 @@
 @use "partials/variables.scss" as vars;
 @use "partials/mixins.scss" as mixins;
-@use "bootstrap/scss/bootstrap" as bootstrap;
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
 body {
   font-family: "Poppins", sans-serif;

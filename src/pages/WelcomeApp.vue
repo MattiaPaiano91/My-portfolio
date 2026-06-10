@@ -41,9 +41,9 @@ onMounted(() => {
 
 <template>
   <div class="landing-page" :class="uiStore.themeFlag ? 'landing-light' : 'landing-dark'">
-    <section class="hero-section container-fluid">
-      <div class="row align-items-center g-4 g-lg-5">
-        <div class="col-12 col-lg-6 d-flex justify-content-center">
+    <section class="hero-section">
+      <div class="hero-layout">
+        <div class="hero-media-column">
           <div class="hero-visual">
             <div class="visual-frame">
               <img src="/img/foto.webp" alt="Ritratto di Mattia Paiano" />
@@ -52,7 +52,7 @@ onMounted(() => {
           </div>
         </div>
 
-        <div class="col-12 col-lg-6">
+        <div>
           <div class="hero-copy">
             <p class="hero-kicker hero-animate">Mattia Paiano | Full-Stack Web Developer</p>
             <h1 class="hero-animate">Creo applicazioni web solide, chiare e fatte per durare.</h1>
@@ -77,7 +77,7 @@ onMounted(() => {
     <AboutMe id="about-me" />
 
     <section class="home-projects">
-      <div class="container">
+      <div class="home-projects-inner">
         <SectionTitle
           eyebrow="Portfolio"
           title="Alcuni progetti che raccontano meglio il mio lavoro di oggi"
@@ -85,7 +85,7 @@ onMounted(() => {
           align="center"
         />
 
-        <div class="project-grid">
+        <div class="project-list">
           <ProjectCard
             v-for="project in featuredProjects"
             :key="project.id"
@@ -117,6 +117,22 @@ onMounted(() => {
 
 .hero-section {
   padding: 2rem 1rem 3rem;
+}
+
+.hero-layout {
+  display: flex;
+  align-items: center;
+  gap: 3rem;
+
+  > * {
+    flex: 1 1 0;
+    min-width: 0;
+  }
+}
+
+.hero-media-column {
+  display: flex;
+  justify-content: center;
 }
 
 .hero-visual {
@@ -209,15 +225,34 @@ onMounted(() => {
   padding: 0 0 5rem;
 }
 
-.project-grid {
-  display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
+.home-projects-inner {
+  width: min(1140px, 100% - 2rem);
+  margin: 0 auto;
+}
+
+.project-list {
+  display: flex;
+  flex-wrap: wrap;
   gap: 1.25rem;
+
+  > * {
+    flex: 1 1 calc((100% - 2.5rem) / 3);
+    min-width: 280px;
+  }
 }
 
 @media screen and (max-width: 991px) {
   .hero-section {
     padding-top: 1rem;
+  }
+
+  .hero-layout {
+    flex-direction: column;
+    gap: 1.5rem;
+
+    > * {
+      width: 100%;
+    }
   }
 
   .hero-copy {
@@ -234,8 +269,10 @@ onMounted(() => {
     bottom: 1rem;
   }
 
-  .project-grid {
-    grid-template-columns: 1fr;
+  .project-list {
+    > * {
+      flex-basis: 100%;
+    }
   }
 }
 </style>

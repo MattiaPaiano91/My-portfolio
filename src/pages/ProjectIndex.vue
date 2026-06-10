@@ -21,7 +21,7 @@ onMounted(() => {
 </script>
 
 <template>
-  <div class="container project-index">
+  <div class="project-index">
     <SectionTitle
       eyebrow="Portfolio"
       title="Progetti selezionati"
@@ -29,7 +29,7 @@ onMounted(() => {
       align="center"
     />
 
-    <div class="project-grid">
+    <div class="project-list">
       <ProjectCard
         v-for="project in orderedProjects"
         :key="project.id"
@@ -44,19 +44,26 @@ onMounted(() => {
 @use "@/assets/scss/partials/variables.scss" as vars;
 
 .project-index {
+  width: min(1140px, 100% - 2rem);
+  margin: 0 auto;
   min-height: vars.$mainHeight;
   padding-bottom: 4rem;
 }
 
-.project-grid {
-  display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
+.project-list {
+  display: flex;
+  flex-wrap: wrap;
   gap: 1.25rem;
+
+  > * {
+    flex: 1 1 calc((100% - 1.25rem) / 2);
+    min-width: 320px;
+  }
 }
 
 @media screen and (max-width: 991px) {
-  .project-grid {
-    grid-template-columns: 1fr;
+  .project-list > * {
+    flex-basis: 100%;
   }
 }
 </style>
