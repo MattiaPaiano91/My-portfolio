@@ -1,5 +1,6 @@
 <script setup>
 import SkillBadge from "@/components/SkillBadge.vue";
+import { projectAccentClasses } from "@/data/project-card.js";
 
 const emit = defineEmits(["open"]);
 
@@ -10,17 +11,10 @@ defineProps({
   },
 });
 
-const accentMap = {
-  indigo: "accent-indigo",
-  violet: "accent-violet",
-  slate: "accent-slate",
-  sky: "accent-sky",
-  soft: "accent-soft",
-};
 </script>
 
 <template>
-  <article class="project-card" :class="accentMap[project.accent] || 'accent-indigo'">
+  <article class="project-card" :class="projectAccentClasses[project.accent] || 'accent-indigo'">
     <router-link class="project-link" :to="{ name: 'show-project' }" @click="emit('open', project.id)">
       <div class="project-cover">
         <img :src="project.image" :alt="project.title" />

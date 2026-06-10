@@ -1,14 +1,9 @@
 <script setup>
 import { computed } from "vue";
 import { useUiStore } from "@/stores/ui.js";
+import { navLinks } from "@/data/navigation.js";
 
 const uiStore = useUiStore();
-
-const navLinks = [
-  { name: "WelcomeApp", label: "Home" },
-  { name: "project-index", label: "Portfolio" },
-  { name: "contact-me", label: "Contatti" },
-];
 
 const themeClass = computed(() =>
   uiStore.themeFlag ? "header-light" : "header-dark"
@@ -50,7 +45,7 @@ function toggleTheme() {
             @click="toggleTheme"
             :aria-label="uiStore.themeFlag ? 'Attiva tema scuro' : 'Attiva tema chiaro'"
           >
-            <i :class="uiStore.themeFlag ? 'fa-regular fa-moon' : 'fa-regular fa-sun'"></i>
+            <i :class="uiStore.themeFlag ? 'fa-solid fa-moon' : 'fa-solid fa-sun'"></i>
           </button>
 
           <button

@@ -61,7 +61,7 @@ function downloadCV() {
 
     <div class="div p-3">
       <button @click="downloadCV()" class="download-cv" :class="uiStore.themeFlag ? '' : 'bg-dark text-white'">
-        Scarica CV <i class="fa-regular fa-circle-down"></i>
+        Scarica CV <i class="fa-solid fa-circle-down"></i>
       </button>
     </div>
 

@@ -2,23 +2,11 @@
 import { useUiStore } from "@/stores/ui.js";
 import { Swiper, SwiperSlide } from "swiper/vue";
 import { Autoplay } from "swiper/modules";
+import { stackIcons, stackSwiperBreakpoints } from "@/data/footer.js";
+import { navLinks } from "@/data/navigation.js";
 import "swiper/css";
 
 const uiStore = useUiStore();
-
-const slider = [
-  "/SVG/bootstrap.svg",
-  "/SVG/css3-alt.svg",
-  "/SVG/database-solid.svg",
-  "/SVG/git-alt.svg",
-  "/SVG/html5.svg",
-  "/SVG/js.svg",
-  "/SVG/laravel.svg",
-  "/SVG/mysql-svgrepo-com.svg",
-  "/SVG/node-js.svg",
-  "/SVG/php.svg",
-  "/SVG/vuejs.svg",
-];
 
 const modules = [Autoplay];
 </script>
@@ -35,15 +23,11 @@ const modules = [Autoplay];
       <swiper
         :loop="true"
         :autoplay="{ delay: 2200, disableOnInteraction: false }"
-        :breakpoints="{
-          320: { slidesPerView: 3, spaceBetween: 20 },
-          640: { slidesPerView: 4, spaceBetween: 24 },
-          1024: { slidesPerView: 6, spaceBetween: 28 }
-        }"
+        :breakpoints="stackSwiperBreakpoints"
         :modules="modules"
         class="stack-swiper"
       >
-        <swiper-slide v-for="elem in slider" :key="elem" class="slider">
+        <swiper-slide v-for="elem in stackIcons" :key="elem" class="slider">
           <div class="icon-card">
             <img
               :style="!uiStore.themeFlag ? 'filter: invert(1);' : ''"
@@ -55,9 +39,14 @@ const modules = [Autoplay];
       </swiper>
 
       <nav class="footer-nav" aria-label="Link footer">
-        <router-link class="footer-link" :to="{ name: 'WelcomeApp' }">Home</router-link>
-        <router-link class="footer-link" :to="{ name: 'project-index' }">Portfolio</router-link>
-        <router-link class="footer-link" :to="{ name: 'contact-me' }">Contatti</router-link>
+        <router-link
+          v-for="link in navLinks"
+          :key="link.name"
+          class="footer-link"
+          :to="{ name: link.name }"
+        >
+          {{ link.label }}
+        </router-link>
       </nav>
 
       <p class="signature">Costruito con Vue, Sass e parecchia curiosita.</p>

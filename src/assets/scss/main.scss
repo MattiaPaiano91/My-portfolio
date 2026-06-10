@@ -2,7 +2,7 @@
 @use "partials/mixins.scss" as mixins;
 @use "bootstrap/scss/bootstrap" as bootstrap;
 
-* {
+body {
   font-family: "Poppins", sans-serif;
 }
 
@@ -15,12 +15,30 @@ body {
   color: #101828;
 }
 
-.fas,
+.fa,
+.fa::before,
 .fa-solid,
-.fab,
+.fa-solid::before,
+.fas,
+.fas::before {
+  font-family: "Font Awesome 6 Free" !important;
+  font-weight: 900 !important;
+}
+
+.fa-regular,
+.fa-regular::before,
 .far,
-.fa {
-  font-family: "Font Awesome 6 Free", "Font Awesome 6 Brands" !important;
+.far::before {
+  font-family: "Font Awesome 6 Free" !important;
+  font-weight: 400 !important;
+}
+
+.fa-brands,
+.fa-brands::before,
+.fab,
+.fab::before {
+  font-family: "Font Awesome 6 Brands" !important;
+  font-weight: 400 !important;
 }
 
 button {
