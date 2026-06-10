@@ -82,6 +82,7 @@ onBeforeMount(() => {
 .show-copy,
 .show-media,
 .description {
+  color: #101828;
   border: 1px solid rgba(152, 158, 221, 0.22);
   border-radius: 28px;
   background:

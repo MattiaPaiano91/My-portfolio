@@ -116,8 +116,8 @@ function downloadCV() {
   .contact-content-dark {
     background:
       linear-gradient(180deg, rgba(152, 158, 221, 0.12), rgba(152, 158, 221, 0.04)),
-      #101828;
-    color: #ffffff;
+      rgba(255, 255, 255, 0.82);
+    color: #101828;
   }
 
   .contact-info {
@@ -170,7 +170,8 @@ function downloadCV() {
   padding: 0.95rem 1.35rem;
   border-radius: 999px;
   border: 1px solid rgba(152, 158, 221, 0.3);
-  transition: all 0.2s ease-in-out;
+  box-shadow: 0 8px 18px rgba(15, 23, 42, 0.08);
+  transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out, background-color 0.2s ease-in-out;
 
   &:hover {
     transform: translateY(-2px);
@@ -179,7 +180,16 @@ function downloadCV() {
 }
 
 .download-cv-dark {
-  background: #101828;
-  color: #ffffff;
+  background: rgba(255, 255, 255, 0.82);
+  color: #101828;
+  box-shadow:
+    0 10px 22px rgba(15, 23, 42, 0.22),
+    0 0 0 1px rgba(255, 255, 255, 0.18);
+
+  &:hover {
+    box-shadow:
+      0 16px 30px rgba(15, 23, 42, 0.28),
+      0 0 22px rgba(152, 158, 221, 0.18);
+  }
 }
 </style>

@@ -125,7 +125,7 @@ function closeMobileMenu() {
 
 .header-container {
   width: 100%;
-  padding: 0 1rem;
+  padding: 0;
 }
 
 .header-light {
@@ -139,6 +139,8 @@ function closeMobileMenu() {
 }
 
 .header-shell {
+  width: min(1180px, calc(100% - 2rem));
+  margin: 0 auto;
   position: relative;
   min-height: 96px;
   display: flex;
@@ -309,8 +311,8 @@ function closeMobileMenu() {
 }
 
 @media screen and (min-width: 992px) {
-  .header-container {
-    padding: 0 1.5rem;
+  .header-shell {
+    width: min(1180px, calc(100% - 3rem));
   }
 }
 </style>

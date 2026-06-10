@@ -11,11 +11,13 @@ body {
 
 html {
   scroll-behavior: smooth;
+  overflow-x: clip;
 }
 
 body {
   background-color: #f8f9ff;
   color: #101828;
+  overflow-x: clip;
 }
 
 .fa,

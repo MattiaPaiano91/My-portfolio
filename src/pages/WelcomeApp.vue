@@ -116,6 +116,8 @@ onMounted(() => {
 }
 
 .hero-section {
+  width: min(1180px, calc(100% - 2rem));
+  margin: 0 auto;
   padding: 2rem 1rem 3rem;
 }
 

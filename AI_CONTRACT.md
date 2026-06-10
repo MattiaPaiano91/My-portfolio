@@ -1,5 +1,9 @@
 # Frontend & Vue.js Best Practices
 
+## Ogni volta
+
+Se la modifica richiede aggiorna il README.md
+
 ## Obiettivo
 
 Il codice deve essere leggibile, tipizzato, manutenibile e coerente con l’architettura esistente del progetto.
@@ -684,3 +688,6 @@ Quando lavori su questo progetto:
 10. Non fare refactor massivi se la richiesta è puntuale.
 11. Non rompere compatibilità con componenti o API già esistenti.
 12. Prima di concludere, controlla import inutilizzati, tipi, naming e possibili stati non gestiti.
+
+
+

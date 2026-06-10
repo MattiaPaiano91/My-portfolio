@@ -27,14 +27,14 @@ const modules = [Autoplay];
         :modules="modules"
         class="stack-swiper"
       >
-        <swiper-slide v-for="elem in stackIcons" :key="elem" class="slider">
+        <swiper-slide v-for="elem in stackIcons" :key="elem.src" class="slider">
           <div class="flex h-24 items-center justify-center rounded-3xl border border-[rgba(152,158,221,0.18)] bg-white/5">
-            <img
-              class="h-[52px] w-[52px] object-contain"
-              :style="!uiStore.themeFlag ? 'filter: invert(1);' : ''"
-              :src="elem"
-              alt="Tecnologia usata nel portfolio"
-            />
+            <span
+              class="stack-icon"
+              :style="{ '--icon-url': `url(${elem.src})` }"
+              role="img"
+              :aria-label="elem.label"
+            ></span>
           </div>
         </swiper-slide>
       </swiper>
@@ -90,6 +90,15 @@ const modules = [Autoplay];
 
 .stack-swiper {
   padding: 1rem 0 2.5rem;
+}
+
+.stack-icon {
+  width: 52px;
+  height: 52px;
+  color: currentColor;
+  background: currentColor;
+  mask: var(--icon-url) center / contain no-repeat;
+  -webkit-mask: var(--icon-url) center / contain no-repeat;
 }
 
 .footer-link {

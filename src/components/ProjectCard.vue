@@ -15,7 +15,7 @@ defineProps({
 
 <template>
   <article
-    class="h-full overflow-hidden rounded-[28px] border border-[rgba(152,158,221,0.18)] bg-white/85 shadow-[0_18px_45px_rgba(15,23,42,0.08)] transition hover:-translate-y-1 hover:shadow-[0_26px_55px_rgba(15,23,42,0.12)]"
+    class="h-full overflow-hidden rounded-[28px] border border-[rgba(152,158,221,0.18)] bg-white/85 text-[#101828] shadow-[0_18px_45px_rgba(15,23,42,0.08)] transition hover:-translate-y-1 hover:shadow-[0_26px_55px_rgba(15,23,42,0.12)]"
     :class="projectAccentClasses[project.accent] || 'accent-indigo'"
   >
     <router-link

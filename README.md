@@ -1,7 +1,62 @@
-# Vue 3 + Vite
+# Portfolio Mattia Paiano
 
-This template should help get you started developing with Vue 3 in Vite. The template uses Vue 3 `<script setup>` SFCs, check out the [script setup docs](https://v3.vuejs.org/api/sfc-script-setup.html#sfc-script-setup) to learn more.
+Portfolio personale sviluppato con Vue 3 e Vite per presentare profilo, stack tecnico, progetti selezionati e contatti.
 
-## Recommended IDE Setup
+L'interfaccia e pensata come una single page application semplice e diretta: landing iniziale, sezione about, portfolio, dettaglio progetto, pagina contatti e fallback 404.
 
-- [VS Code](https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (and disable Vetur) + [TypeScript Vue Plugin (Volar)](https://marketplace.visualstudio.com/items?itemName=Vue.vscode-typescript-vue-plugin).
+## Stack
+
+- Vue 3
+- Vite
+- Vue Router
+- Pinia
+- Tailwind CSS
+- Sass
+- GSAP
+- Swiper
+
+## Contenuti principali
+
+- Hero con presentazione personale
+- Sezione competenze organizzata per area
+- Card progetto con dettaglio dedicato
+- Tema chiaro/scuro
+- Carousel footer con icone SVG custom dello stack attuale
+- Download CV
+- Pagina Not Found
+
+## Stack raccontato nel portfolio
+
+- Frontend: TypeScript, React, Next.js, Tailwind CSS, Zustand, OpenLayers
+- Backend: Python, FastAPI, SQLAlchemy, REST API, Pydantic
+- Database e GIS: PostgreSQL, PostGIS, Row Level Security, MVT / Vector Tiles
+- DevOps e tools: Docker, Git, GitLab CI/CD, Keycloak, Linux / WSL
+
+## Avvio locale
+
+```bash
+npm install
+npm run dev
+```
+
+## Build
+
+```bash
+npm run build
+```
+
+## Preview produzione
+
+```bash
+npm run preview
+```
+
+## Struttura dati
+
+I contenuti principali sono separati dai componenti Vue e si trovano in `src/data`:
+
+- `projects.js`: progetti mostrati nel portfolio
+- `skills.js`: gruppi di competenze
+- `about.js`: testi della sezione about
+- `footer.js`: icone e configurazione carousel footer
+- `navigation.js`: link di navigazione

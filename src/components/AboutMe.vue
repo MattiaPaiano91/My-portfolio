@@ -104,6 +104,7 @@ onMounted(() => {
 .skills-block,
 .experience-card,
 .skill-group {
+  color: #101828;
   border-radius: 28px;
   border: 1px solid rgba(152, 158, 221, 0.18);
   background:

@@ -18,7 +18,6 @@ const uiStore = useUiStore();
 <style lang="scss">
 @use "@/assets/scss/main" as main;
 @use "@/assets/scss/partials/reset" as reset;
-@use "@/assets/scss/responsive.scss" as responsive;
 
 .app-shell {
   transition: background-color 0.25s ease, color 0.25s ease;
