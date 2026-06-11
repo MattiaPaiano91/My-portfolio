@@ -26,8 +26,7 @@ function downloadCV() {
     <div class="contact-content" :class="{ 'contact-content-dark': !uiStore.themeFlag }">
       <div class="contact-info">
         <p id="title">
-          Se hai un'idea, una collaborazione o semplicemente vuoi fare due chiacchiere sul web,
-          trovi tutto qui.
+          Per lavoro, collaborazioni o due chiacchiere tecniche, trovi tutto qui.
         </p>
         <ul>
           <li>

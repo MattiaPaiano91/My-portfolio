@@ -17,7 +17,7 @@ const modules = [Autoplay];
     <div class="relative z-[1] mx-auto w-[min(1180px,calc(100%-2rem))]">
       <div class="mx-auto mb-8 max-w-[720px] text-center">
         <p class="eyebrow">Stack quotidiano</p>
-        <h2 class="text-[clamp(1.6rem,3vw,2.4rem)]">Frontend, backend e motion con un taglio molto pratico.</h2>
+        <h2 class="text-[clamp(1.6rem,3vw,2.4rem)]">Frontend, backend e qualche dettaglio curato.</h2>
       </div>
 
       <swiper
@@ -50,7 +50,7 @@ const modules = [Autoplay];
         </router-link>
       </nav>
 
-      <p class="m-0 text-center opacity-80">Costruito con Vue, Sass e parecchia curiosita.</p>
+      <p class="m-0 text-center opacity-80">Costruito con Vue, Sass e un po' di pazienza.</p>
     </div>
   </footer>
 </template>

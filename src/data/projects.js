@@ -6,7 +6,7 @@ export const projects = [
     summary:
       "Gestionale multi-tenant con Keycloak, ruoli applicativi, separazione dati per tenant e backend FastAPI.",
     description:
-      "Qui il punto non era solo far funzionare login e CRUD, ma tenere insieme tenant separati, ruoli, flussi autenticati e una struttura backend abbastanza pulita da poter crescere senza diventare un groviglio.",
+      "Login, ruoli, tenant separati e backend FastAPI. La parte interessante era far crescere tutto senza trasformarlo in un nodo di cavi.",
     tech: ["Next.js", "TypeScript", "FastAPI", "PostgreSQL", "Keycloak", "Docker"],
     image: "/img/m_4457.png",
     url: "",
@@ -20,7 +20,7 @@ export const projects = [
     summary:
       "Dashboard GIS basata su OpenLayers per leggere, filtrare e gestire dati territoriali direttamente su mappa.",
     description:
-      "Un progetto nato piu per lavorare bene sui dati che per fare scena: livelli, filtri, navigazione veloce e una mappa che deve restare chiara anche quando le informazioni iniziano a diventare tante.",
+      "Livelli, filtri e navigazione su mappa. Il punto era tenere i dati leggibili anche quando iniziano a diventare tanti.",
     tech: ["React", "OpenLayers", "TypeScript", "PostGIS", "Vector Tiles"],
     image: "/img/foto.jpg",
     url: "",
@@ -34,7 +34,7 @@ export const projects = [
     summary:
       "Backend FastAPI per dati geospaziali, con query spaziali, endpoint REST e generazione di layer MVT.",
     description:
-      "Qui mi sono concentrato soprattutto sulla parte meno visibile ma piu delicata: modeling, query spaziali, performance, serializzazione e un'integrazione frontend che non costringa a continui workaround.",
+      "Modeling, query spaziali, performance e layer MVT. Poco glamour, parecchia sostanza.",
     tech: ["Python", "FastAPI", "SQLAlchemy", "PostgreSQL", "PostGIS", "MVT"],
     image: "/img/LogoConNomeBianco.svg",
     url: "",
@@ -48,7 +48,7 @@ export const projects = [
     summary:
       "Tool web per caricare, visualizzare e modificare PDF nel browser, con testo, immagini e strumenti di disegno.",
     description:
-      "Mi piace perche mette insieme UI interattiva, gestione file e logica client-side un po piu articolata del solito, restando comunque uno strumento concreto e non una demo fine a se stessa.",
+      "UI interattiva, file nel browser e logica client-side un po' piu vivace del solito.",
     tech: ["Next.js", "TypeScript", "Canvas API", "Tailwind CSS"],
     image: "/img/OndaMattia.svg",
     url: "",
@@ -62,7 +62,7 @@ export const projects = [
     summary:
       "Il classico Tris in React, lasciato qui piu come nota di percorso che come progetto rappresentativo.",
     description:
-      "E uno dei progetti piu vecchi e semplici del portfolio. Lo tengo in fondo perche fa parte del percorso, ma oggi mi raccontano meglio i lavori piu vicini a backend, mappe e applicazioni reali.",
+      "Un progetto vecchio e semplice. Sta qui per onesta storica, non per fare il fenomeno.",
     tech: ["React", "JavaScript", "CSS"],
     image: "/img/tic-tac-toe.jpeg",
     url: "https://tic-tac-toe-react-01.netlify.app/",

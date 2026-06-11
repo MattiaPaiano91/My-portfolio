@@ -47,8 +47,8 @@ onMounted(() => {
     <section class="experience-block reveal-card">
       <SectionTitle
         eyebrow="Esperienza"
-        title="Negli ultimi progetti ho lavorato piu su software vero che su esercizi da portfolio."
-        description="La parte che mi interessa di piu e questa: interfacce operative, backend che reggono bene, dati geospaziali, autenticazione e architetture pensate per essere mantenute senza impazzire dopo due mesi."
+        title="Mi piace lavorare su cose concrete."
+        description="Interfacce operative, backend ordinati, dati geospaziali e autenticazione. Roba che deve restare chiara anche dopo qualche mese."
       />
 
       <div class="experience-list">
@@ -66,7 +66,7 @@ onMounted(() => {
       <SectionTitle
         eyebrow="Skills"
         title="Stack attuale"
-        description="Ho lasciato un po sullo sfondo le tecnologie con cui ho iniziato e qui ho tenuto quelle che oggi uso piu spesso o che sento piu mie."
+        description="Le tecnologie che uso piu spesso oggi, senza fare l'album delle figurine."
       />
 
       <div class="skills-groups">

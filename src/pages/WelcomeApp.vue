@@ -55,10 +55,10 @@ onMounted(() => {
         <div>
           <div class="hero-copy">
             <p class="hero-kicker hero-animate">Mattia Paiano | Full-Stack Web Developer</p>
-            <h1 class="hero-animate">Creo applicazioni web solide, chiare e fatte per durare.</h1>
+            <h1 class="hero-animate">Sviluppo web, senza troppi giri.</h1>
             <p class="hero-text hero-animate">
-              Mi occupo di frontend, backend e strumenti interni: dashboard, mappe interattive,
-              API e applicazioni dove i dati devono essere organizzati bene e funzionare senza attriti.
+              Frontend, backend, dashboard, mappe e API. Mi interessa farle funzionare bene,
+              tenerle leggibili e non complicarle piu del necessario.
             </p>
 
             <div class="hero-actions hero-animate">
@@ -80,8 +80,8 @@ onMounted(() => {
       <div class="home-projects-inner">
         <SectionTitle
           eyebrow="Portfolio"
-          title="Alcuni progetti che raccontano meglio il mio lavoro di oggi"
-          description="Qui sotto ho raccolto le cose che mi rappresentano di piu: applicazioni interne, backend, mappe, autenticazione e gestione di dati un po meno banali del solito."
+          title="Progetti recenti"
+          description="Una selezione di lavori su backend, mappe, autenticazione e strumenti interni. Niente fuochi d'artificio, solo cose costruite con criterio."
           align="center"
         />
 
