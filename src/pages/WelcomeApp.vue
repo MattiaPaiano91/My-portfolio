@@ -55,7 +55,7 @@ onMounted(() => {
         <div>
           <div class="hero-copy">
             <p class="hero-kicker hero-animate">Mattia Paiano | Full-Stack Web Developer</p>
-            <h1 class="hero-animate">Sviluppo web, senza troppi giri.</h1>
+            <h1 class="hero-animate">Creo applicazioni web.</h1>
             <p class="hero-text hero-animate">
               Frontend, backend, dashboard, mappe e API. Mi interessa farle funzionare bene,
               tenerle leggibili e non complicarle piu del necessario.

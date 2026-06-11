@@ -1,0 +1,15 @@
+{
+  "compilerOptions": {
+    "paths": {
+      "@/*": ["./src/*"]
+    },
+    "allowJs": true,
+    "checkJs": false,
+    "module": "ESNext",
+    "moduleResolution": "Bundler",
+    "target": "ESNext",
+    "jsx": "preserve",
+    "strict": false
+  },
+  "include": ["src/**/*.js", "src/**/*.vue"]
+}

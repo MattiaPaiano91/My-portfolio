@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { computed, ref } from "vue";
-import { useUiStore } from "@/stores/ui.js";
-import { navLinks } from "@/data/navigation.js";
+import { useUiStore } from "@/stores/ui";
+import { navLinks } from "@/data/navigation";
 
 const uiStore = useUiStore();
 const isMobileMenuOpen = ref(false);
@@ -142,7 +142,7 @@ function closeMobileMenu() {
   width: min(1180px, calc(100% - 2rem));
   margin: 0 auto;
   position: relative;
-  min-height: 96px;
+  min-height: var(--header-height);
   display: flex;
   align-items: center;
   justify-content: space-between;

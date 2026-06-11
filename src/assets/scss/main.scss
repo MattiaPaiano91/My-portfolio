@@ -5,6 +5,10 @@
 @tailwind components;
 @tailwind utilities;
 
+:root{
+  --header-height: 96px;
+}
+
 body {
   font-family: "Poppins", sans-serif;
 }
@@ -67,6 +71,6 @@ button {
 }
 
 .main {
-  padding-top: 120px;
-  min-height: calc(100vh - 120px);
+  padding-top: var(--header-height);
+  min-height: calc(100vh - var(--header-height));
 }
