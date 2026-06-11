@@ -1,7 +1,6 @@
-<script setup>
+<script setup lang="ts">
 import AppHeader from "@/components/AppHeader.vue";
 import AppFooter from "@/components/AppFooter.vue";
-import AppMain from "@/components/AppMain.vue";
 import { useUiStore } from "@/stores/ui.js";
 
 const uiStore = useUiStore();
@@ -10,7 +9,7 @@ const uiStore = useUiStore();
 <template>
   <AppHeader />
   <main :class="uiStore.themeFlag ? 'mode-light' : 'mode-dark'" class="main app-shell">
-    <AppMain />
+    <router-view />
   </main>
   <AppFooter :class="uiStore.themeFlag ? 'mode-light' : 'mode-dark'" />
 </template>
