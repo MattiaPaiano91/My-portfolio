@@ -49,6 +49,7 @@ onMounted(() => {
   margin: 0 auto;
   min-height: vars.$mainHeight;
   padding-bottom: 4rem;
+  padding: 2rem 1rem 4rem;
 }
 
 .project-list {

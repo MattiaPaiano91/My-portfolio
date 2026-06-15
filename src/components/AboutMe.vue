@@ -155,8 +155,8 @@ onMounted(() => {
 }
 
 .bio-card {
-  flex: 1 1 calc((100% - 2.5rem) / 3);
-  min-width: 260px;
+  flex: 1 1 calc((100% - 3.75rem) / 4);
+  min-width: 240px;
   padding: 1.6rem;
   border-radius: 20px;
   border: 1px solid rgba(152, 158, 221, 0.18);
