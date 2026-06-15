@@ -33,7 +33,7 @@ function closeMobileMenu() {
             src="/img/LogoBianco.svg"
             alt="Logo Mattia Paiano"
           />
-          <span>Mattia Paiano</span>
+          <!-- <span>Mattia Paiano</span> -->
         </router-link>
 
         <nav class="desktop-nav" aria-label="Navigazione principale">

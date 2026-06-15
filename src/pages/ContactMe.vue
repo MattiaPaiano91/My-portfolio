@@ -131,7 +131,7 @@ function downloadCV() {
         margin-bottom: 1rem;
         display: flex;
         align-items: flex-start;
-        justify-content: center;
+        // justify-content: center;
         flex-wrap: wrap;
 
         strong {

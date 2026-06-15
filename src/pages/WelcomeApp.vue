@@ -1,26 +1,10 @@
 <script setup lang="ts">
-import { computed, onMounted } from "vue";
+import { onMounted } from "vue";
 import { gsap } from "gsap";
 import AboutMe from "@/components/AboutMe.vue";
-import ProjectCard from "@/components/ProjectCard.vue";
-import SectionTitle from "@/components/SectionTitle.vue";
-import { useProjectStore } from "@/stores/project.js";
 import { useUiStore } from "@/stores/ui.js";
-import type { Project } from "@/types/index.ts";
 
-const projectStore = useProjectStore();
 const uiStore = useUiStore();
-const featuredProjects = computed(() => projectStore.getProjects.filter((p: Project) => p.featured).slice(0, 3));
-
-// const carouselItems = [
-//   "Python", "FastAPI", "PostgreSQL", "Mappe interattive",
-//   "REST API", "Dashboard", "Next.js", "TypeScript",
-//   "PostGIS", "Docker", "React", "OpenLayers",
-// ];
-
-function openProject(projectId: number): void {
-  projectStore.setActiveProjectId(projectId);
-}
 
 onMounted(() => {
   window.scrollTo({ top: 0, behavior: "auto" });
@@ -30,7 +14,6 @@ onMounted(() => {
     { autoAlpha: 0, y: 32 },
     { autoAlpha: 1, y: 0, duration: 0.9, stagger: 0.14, ease: "power3.out" }
   );
-
 });
 </script>
 
@@ -50,8 +33,6 @@ onMounted(() => {
         </div>
 
         <h1 class="hero-headline hero-animate">
-          <!-- Sviluppo cose per il web.<br />
-          E le faccio funzionare. -->
           Mattia Paiano
         </h1>
 
