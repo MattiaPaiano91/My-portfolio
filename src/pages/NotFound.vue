@@ -20,9 +20,9 @@ onMounted(() => {
         <router-link class="cta-primary" :to="{ name: 'WelcomeApp' }">
           Torna alla home
         </router-link>
-        <router-link class="cta-secondary" :to="{ name: 'project-index' }">
+        <!-- <router-link class="cta-secondary" :to="{ name: 'project-index' }">
           Guarda i progetti
-        </router-link>
+        </router-link> -->
       </div>
     </div>
 

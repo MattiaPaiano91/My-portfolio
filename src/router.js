@@ -14,18 +14,18 @@ const router = createRouter({
       component: WelcomeApp,
       meta: { pageTitle: "MP | Welcome" },
     },
-    {
-      path: "/Project/show",
-      name: "show-project",
-      component: ShowProject,
-      meta: { pageTitle: "MP | Show" },
-    },
-    {
-      path: "/Project/index",
-      name: "project-index",
-      component: ProjectIndex,
-      meta: { pageTitle: "MP | Progetti" },
-    },
+    // {
+    //   path: "/Project/show",
+    //   name: "show-project",
+    //   component: ShowProject,
+    //   meta: { pageTitle: "MP | Show" },
+    // },
+    // {
+    //   path: "/Project/index",
+    //   name: "project-index",
+    //   component: ProjectIndex,
+    //   meta: { pageTitle: "MP | Progetti" },
+    // },
     {
       path: "/ContactMe",
       name: "contact-me",

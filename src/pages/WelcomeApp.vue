@@ -61,9 +61,9 @@ onMounted(() => {
         </p>
 
         <div class="hero-actions hero-animate">
-          <router-link class="cta-primary" :to="{ name: 'project-index' }">
+          <!-- <router-link class="cta-primary" :to="{ name: 'project-index' }">
             Guarda i progetti &rarr;
-          </router-link>
+          </router-link> -->
           <router-link class="cta-secondary" :to="{ name: 'contact-me' }">
             Contattami
           </router-link>
@@ -87,7 +87,7 @@ onMounted(() => {
     <!-- Sezione editoriale -->
     <AboutMe id="about-me" />
 
-    <!-- Progetti in evidenza -->
+    <!-- Progetti in evidenza
     <section class="home-projects">
       <div class="home-projects-inner">
         <SectionTitle
@@ -105,7 +105,7 @@ onMounted(() => {
           />
         </div>
       </div>
-    </section>
+    </section> -->
 
   </div>
 </template>
