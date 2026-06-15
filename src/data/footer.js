@@ -16,6 +16,7 @@ export const stackIcons = [
   { label: "Linux", src: "/SVG/stack/linux.svg" },
 ];
 
+
 export const stackSwiperBreakpoints = {
   320: { slidesPerView: 3, spaceBetween: 20 },
   640: { slidesPerView: 4, spaceBetween: 24 },
