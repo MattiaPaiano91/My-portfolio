@@ -1,10 +1,11 @@
-<script setup>
+<script setup lang="ts">
 import { computed, onBeforeMount } from "vue";
 import { useProjectStore } from "@/stores/project.js";
 import SkillBadge from "@/components/SkillBadge.vue";
+import type { Project } from "@/types/index.ts";
 
 const projectStore = useProjectStore();
-const project = computed(() => projectStore.getActiveProject || projectStore.getProjects[0]);
+const project = computed<Project>(() => projectStore.getActiveProject ?? projectStore.getProjects[0]);
 
 onBeforeMount(() => {
   window.scrollTo({ top: 0, behavior: "auto" });

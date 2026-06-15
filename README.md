@@ -60,3 +60,7 @@ I contenuti principali sono separati dai componenti Vue e si trovano in `src/dat
 - `about.js`: testi della sezione about
 - `footer.js`: icone e configurazione carousel footer
 - `navigation.js`: link di navigazione
+
+## Alias import
+
+Il progetto usa l'alias `@` per puntare a `src`, configurato sia in `vite.config.js` sia in `tsconfig.json`.

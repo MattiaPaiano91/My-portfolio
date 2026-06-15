@@ -1,13 +1,9 @@
-<script setup>
-defineProps({
-  label: {
-    type: String,
-    required: true,
-  },
-  tone: {
-    type: String,
-    default: "default",
-  },
+<script setup lang="ts">
+withDefaults(defineProps<{
+  label: string
+  tone?: 'default' | 'subtle' | 'strong'
+}>(), {
+  tone: 'default',
 });
 </script>
 

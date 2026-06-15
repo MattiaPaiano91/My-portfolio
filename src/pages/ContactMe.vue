@@ -1,4 +1,4 @@
-<script setup>
+<script setup lang="ts">
 import { onMounted } from "vue";
 import { useUiStore } from "@/stores/ui.js";
 
@@ -25,9 +25,7 @@ function downloadCV() {
 
     <div class="contact-content" :class="{ 'contact-content-dark': !uiStore.themeFlag }">
       <div class="contact-info">
-        <p id="title">
-          Per lavoro, collaborazioni o due chiacchiere tecniche, trovi tutto qui.
-        </p>
+        <p>Per lavoro, collaborazioni o due chiacchiere tecniche, trovi tutto qui.</p>
         <ul>
           <li>
             <strong>Email:</strong>
@@ -59,7 +57,7 @@ function downloadCV() {
     </div>
 
     <div class="p-4">
-      <button @click="downloadCV()" class="download-cv" :class="{ 'download-cv-dark': !uiStore.themeFlag }">
+      <button type="button" @click="downloadCV" class="download-cv" :class="{ 'download-cv-dark': !uiStore.themeFlag }">
         Scarica CV <i class="fa-solid fa-circle-down"></i>
       </button>
     </div>

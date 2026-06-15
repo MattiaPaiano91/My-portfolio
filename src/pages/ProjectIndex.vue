@@ -1,18 +1,19 @@
-<script setup>
+<script setup lang="ts">
 import { computed, onMounted } from "vue";
 import { useProjectStore } from "@/stores/project.js";
 import SectionTitle from "@/components/SectionTitle.vue";
 import ProjectCard from "@/components/ProjectCard.vue";
+import type { Project } from "@/types/index.ts";
 
 const projectStore = useProjectStore();
 const orderedProjects = computed(() => {
-  const featured = projectStore.getProjects.filter((project) => project.featured);
-  const secondary = projectStore.getProjects.filter((project) => !project.featured);
+  const featured = projectStore.getProjects.filter((p: Project) => p.featured);
+  const secondary = projectStore.getProjects.filter((p: Project) => !p.featured);
   return [...featured, ...secondary];
 });
 
-function openProject(projectID) {
-  projectStore.setActiveProjectId(projectID);
+function openProject(projectId: number): void {
+  projectStore.setActiveProjectId(projectId);
 }
 
 onMounted(() => {

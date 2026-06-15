@@ -1,16 +1,15 @@
-<script setup>
+<script setup lang="ts">
 import SkillBadge from "@/components/SkillBadge.vue";
 import { projectAccentClasses } from "@/data/project-card.js";
+import type { Project } from "@/types/index.ts";
 
-const emit = defineEmits(["open"]);
+const emit = defineEmits<{
+  open: [id: number]
+}>();
 
-defineProps({
-  project: {
-    type: Object,
-    required: true,
-  },
-});
-
+defineProps<{
+  project: Project
+}>();
 </script>
 
 <template>

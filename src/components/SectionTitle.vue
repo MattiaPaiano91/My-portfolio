@@ -1,21 +1,13 @@
-<script setup>
-defineProps({
-  eyebrow: {
-    type: String,
-    default: "",
-  },
-  title: {
-    type: String,
-    required: true,
-  },
-  description: {
-    type: String,
-    default: "",
-  },
-  align: {
-    type: String,
-    default: "left",
-  },
+<script setup lang="ts">
+withDefaults(defineProps<{
+  eyebrow?: string
+  title: string
+  description?: string
+  align?: 'left' | 'center'
+}>(), {
+  eyebrow: '',
+  description: '',
+  align: 'left',
 });
 </script>
 

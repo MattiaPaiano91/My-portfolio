@@ -1,4 +1,4 @@
-<script setup>
+<script setup lang="ts">
 import { useUiStore } from "@/stores/ui.js";
 import { Swiper, SwiperSlide } from "swiper/vue";
 import { Autoplay } from "swiper/modules";
@@ -50,7 +50,7 @@ const modules = [Autoplay];
         </router-link>
       </nav>
 
-      <p class="m-0 text-center opacity-80">Costruito con Vue, Sass e un po' di pazienza.</p>
+      <p class="m-0 text-center opacity-80">Costruito con Vue, Sass e un po' di pazienza.(😭)</p>
     </div>
   </footer>
 </template>
