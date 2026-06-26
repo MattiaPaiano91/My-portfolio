@@ -4,6 +4,8 @@ import ProjectIndex from "@/pages/ProjectIndex.vue";
 import NotFound from "@/pages/NotFound.vue";
 import WelcomeApp from "@/pages/WelcomeApp.vue";
 import ContactMe from "@/pages/ContactMe.vue";
+import BlogIndex from "@/pages/BlogIndex.vue";
+import ShowPost from "@/pages/ShowPost.vue";
 
 const router = createRouter({
   history: createWebHistory(),
@@ -31,6 +33,18 @@ const router = createRouter({
       name: "contact-me",
       component: ContactMe,
       meta: { pageTitle: "MP | Contatti" },
+    },
+    {
+      path: "/blog",
+      name: "blog",
+      component: BlogIndex,
+      meta: { pageTitle: "MP | Blog" },
+    },
+    {
+      path: "/blog/:slug",
+      name: "show-post",
+      component: ShowPost,
+      meta: { pageTitle: "MP | Post" },
     },
     {
       path: "/:catchAll(.*)",
